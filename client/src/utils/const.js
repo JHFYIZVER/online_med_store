@@ -1,0 +1,10 @@
+export const ADMIN_ROUTE = "/admin";
+export const BASKET_ROUTE = "/basket";
+export const PROFILE_ROUTE = "/profile";
+export const MAIN_ROUTE = "/main";
+export const CATEGORY_ROUTE = "/catgory";
+export const ABOUT_US_ROUTE = "/about_us";
+export const DEVICE_ROUTE = "/device";
+export const PAYMENT_ROUTE = "/payment";
+export const CONTACT_ROUTE = "/contact";
+export const NOT_FOUND_ROUTE = "/not_found";
