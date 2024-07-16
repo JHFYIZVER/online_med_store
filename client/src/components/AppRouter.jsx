@@ -1,19 +1,28 @@
 import React from "react";
-import { Route, Router, redirect } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { authRoutes, publicRoutes } from "../routs";
+import UserStore from "../store/UserStore";
+
+const User = new UserStore();
+console.log(User);
 
 const AppRouter = () => {
-  const isAuth = false;
+  const isAuth = User.isAuth;
+
   return (
-    <Router>
-      {isAuth &&
-        authRoutes.map(({ path, Component }) => {
-          return <Route key={path} path={path} Component={Component} exact />;
+    <>
+      <Routes>
+        {isAuth &&
+          authRoutes.map(({ path, Component }) => {
+            return (
+              <Route key={path} path={path} element={<Component />} exact />
+            );
+          })}
+        {publicRoutes.map(({ path, Component }) => {
+          return <Route key={path} path={path} element={<Component />} exact />;
         })}
-      {publicRoutes.map(({ path, Component }) => {
-        return <Route key={path} path={path} Component={Component} exact />;
-      })}
-    </Router>
+      </Routes>
+    </>
   );
 };
 

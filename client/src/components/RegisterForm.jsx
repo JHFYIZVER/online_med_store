@@ -6,10 +6,10 @@ const contentRegister = () => {
      <>
        <h3>Введите почту и пароль для регистрации.</h3>
        <form className="flex flex-col items-center justify-center" action="">
-         <InputForm placeholder={"Имя"} type={"text"} />
-         <InputForm placeholder={"E-mail"} type={"email"} />
-         <InputForm placeholder={"Пароль"} type={"password"} />
-         <InputForm placeholder={"Подтвердить пароль"} type={"password"} />
+         <InputForm placeholder={"Имя"} type={"text"} autoComplete="username"/>
+         <InputForm placeholder={"E-mail"} type={"email"} autoComplete="email"/>
+         <InputForm placeholder={"Пароль"} type={"password"} autoComplete="new-password"/>
+         <InputForm placeholder={"Подтвердить пароль"} type={"password"} autoComplete="new-password"/>
          <ButtonForm title={"Регистрация"} />
          <span>Регистрация с помощью</span>
        </form>

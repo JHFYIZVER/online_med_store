@@ -1,10 +1,12 @@
 import React from "react";
 import Logo from "./UI/Logo";
-import { useState } from "react";
-import Register_Login from "./form";
+import RegisterModal from "./Form";
+import ModalStore from "../store/ModalStore";
+import { observer } from "mobx-react-lite";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Modal = new ModalStore();
+
+const Header = observer(() => {
   return (
     <>
       <header>
@@ -44,9 +46,9 @@ const Header = () => {
                 <path
                   d="M18 13.5556V18H20.6667M26 18C26 22.4183 22.4183 26 18 26C13.5817 26 10 22.4183 10 18C10 13.5817 13.5817 10 18 10C22.4183 10 26 13.5817 26 18Z"
                   stroke="black"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
               <h2 className="flex flex-col">
@@ -68,15 +70,15 @@ const Header = () => {
                 <path
                   d="M9.11108 12.3246L16 17.7292C17.1852 18.6591 18.8148 18.6591 20 17.7292L26.8889 12.3246"
                   stroke="black"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M25.7778 10H10.2222C8.99492 10 8 11.0407 8 12.3246V23.9475C8 25.2313 8.99492 26.272 10.2222 26.272H25.7778C27.0051 26.272 28 25.2313 28 23.9475V12.3246C28 11.0407 27.0051 10 25.7778 10Z"
                   stroke="black"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
                 />
               </svg>
               <h2 className="flex flex-col">
@@ -94,7 +96,10 @@ const Header = () => {
               <li className="cursor-pointer">Главная</li>
               <li className="cursor-pointer">О нас</li>
               <li className="cursor-pointer">Оборудование</li>
-              <li onClick={() => setIsOpen(true)} className="cursor-pointer">
+              <li
+                onClick={() => Modal.setIsOpen(true)}
+                className="cursor-pointer"
+              >
                 Регистрация
               </li>
               <li className="cursor-pointer">Контакты</li>
@@ -117,9 +122,9 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Register_Login />
+      <RegisterModal {...Modal} />
     </>
   );
-};
+});
 
 export default Header;

@@ -10,16 +10,16 @@ import {
   CATEGORY_ROUTE,
   MAIN_ROUTE,
 } from "./utils/const";
-import { Admin } from "./pages/Admin";
-import { Basket } from "./pages/Basket";
-import { UserPage } from "./pages/UserPage";
-import { Payment } from "./pages/Payment";
-import { DevicePage } from "./pages/DevicePage";
-import { MainPage } from "./pages/MainPage";
-import { Contact } from "./pages/Contact";
-import { AboutUs } from "./pages/AboutUs";
-import { NotFound } from "./pages/404";
-import { Category } from "./pages/Shop";
+import Admin from "./pages/Admin";
+import Basket from "./pages/Basket";
+import UserPage from "./pages/UserPage";
+import Payment from "./pages/Payment";
+import DevicePage from "./pages/DevicePage";
+import MainPage from "./pages/MainPage";
+import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
+import NotFound from "./pages/404";
+import Category from "./pages/Shop";
 
 export const authRoutes = [
   {
