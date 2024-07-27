@@ -2,37 +2,32 @@ import { makeAutoObservable } from "mobx";
 
 class DeviceStore {
   constructor() {
-    this._types = [
-      { id: 1, name: "Хирургия" },
-      { id: 2, name: "Лаборатория" },
-    ];
+    this._types = [];
     this._tags = [
       { id: 1, name: "Популярные" },
       { id: 2, name: "Новинки" },
       { id: 3, name: "Рекомендуемые" },
     ];
-    this._devices = [
-      {
-        id: 1,
-        name: "Omron M2 Basic",
-        price: 4152,
-        img: "https://www.ixbt.com/img/n1/news/2021/0/8/iphone-12-pro-max-1-large.jpg",
-      },
-    ];
+    this._devices = [];
+    this._selectedType = {};
     makeAutoObservable(this);
   }
 
-  setTypes(types) {
+  setTypes = (types) => {
     this._types = types;
-  }
+  };
 
-  setTags(tags) {
+  setTags = (tags) => {
     this._tags = tags;
-  }
+  };
 
-  setDevices(devices) {
+  setDevices = (devices) => {
     this._devices = devices;
-  }
+  };
+
+  setSelectedType = (type) => {
+    this._selectedType = type;
+  };
 
   get types() {
     return this._types;
@@ -44,6 +39,10 @@ class DeviceStore {
 
   get devices() {
     return this._devices;
+  }
+
+  get selectedType() {
+    return this._selectedType;
   }
 }
 

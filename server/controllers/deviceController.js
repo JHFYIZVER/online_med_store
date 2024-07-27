@@ -6,7 +6,7 @@ const ApiError = require("../error/apiError");
 class DeviceController {
   async create(req, res, next) {
     try {
-      const { name, price, typeId, info } = req.body;
+      let { name, price, typeId, info } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".png";
       img.mv(path.resolve(__dirname, "..", "static", fileName));
@@ -23,7 +23,6 @@ class DeviceController {
           DeviceInfo.create({
             title: i.title,
             description: i.description,
-            tags: i.tags,
             deviceId: device.id,
           });
         });
@@ -52,12 +51,13 @@ class DeviceController {
     return res.json(devices);
   }
   async getOne(req, res) {
-      const { id } = req.params;
-      const device = await Device.findOne({
-         where: { id },
-         include: [{ model: DeviceInfo, as: "info" }],
-      });
-      return res.json(device);
+    const { id } = req.params;
+    const device = await Device.findOne({
+      where: { id },
+      include: [{ model: DeviceInfo, as: "info" }],
+    });
+    return res.json({ device, info: device.info });
+
   }
 }
 

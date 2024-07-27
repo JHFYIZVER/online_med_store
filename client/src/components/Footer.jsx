@@ -4,7 +4,7 @@ import Logo from "./UI/Logo";
 const Footer = () => {
   return (
     <footer className="bg-[#272728] text-white">
-      <div className="px-[40px] py-[40px] flex items-center justify-between">
+      <div className="px-[40px] py-[40px] flex items-center justify-between max-w-[1440px] w-full mx-auto">
         <Logo />
         <div className="footer-contact flex items-center justify-between max-w-[700px] w-full">
           <div className="flex items-center gap-[15px]">
@@ -85,15 +85,22 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="px-[40px] py-[20px] h-[90px] border-t border-[#969696] flex items-center justify-between">
+      <div className="border-t border-[#969696]"></div>
+      <div className="px-[40px] py-[20px] h-[90px] flex items-center justify-between max-w-[1440px] w-full mx-auto">
         <span className="text-[#D4D4D4]">
           © 2024 ЗабайкалМедснаб. - All rights reserved.
         </span>
         <div className="flex items-center justify-between max-w-[450px] w-full">
           <ul className="flex items-center gap-[46px]">
-            <li className="cursor-pointer">Privacy</li>
-            <li className="cursor-pointer">Security</li>
-            <li className="cursor-pointer">Terms</li>
+            <li className="cursor-pointer">
+              <a>Privacy</a>
+            </li>
+            <li className="cursor-pointer">
+              <a>Security</a>
+            </li>
+            <li className="cursor-pointer">
+              <a>Terms</a>
+            </li>
           </ul>
           <ul className="flex items-center gap-[15px]">
             <li className="cursor-pointer">
