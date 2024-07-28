@@ -11,6 +11,8 @@ const DevicePage = () => {
     oneFetchDevice(id).then((data) => setDevice(data));
   }, []);
 
+  console.log(device);
+
   if (!device.device) {
     return <div>Loading...</div>;
   }
@@ -50,7 +52,9 @@ const DevicePage = () => {
             <h2 className="text-[#3D3D3D] pb-3 font-medium">
               Короткое описание
             </h2>
-            <p className="text-[#727272]"></p>
+            <p className="text-[#727272]">
+              {device.device.shortDescription}
+            </p>
           </div>
           <div className="flex items-center gap-7">
             <div className="flex items-center gap-7">
@@ -72,7 +76,7 @@ const DevicePage = () => {
               Тонометры, Здоровье
             </p>
             <p className="text-[#727272]">
-              <span className="text-[#ACACAC] pr-1">Категория: </span>
+              <span className="text-[#ACACAC] pr-1">Категория: </span>{device.device.nameType}
             </p>
           </div>
         </div>

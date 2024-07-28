@@ -18,6 +18,8 @@ const CreateDevice = observer(({ isOpen, setIsOpen }) => {
   const { device } = useContext(Context);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
+  const [shortDescription, setShortDescription] = useState("");
+  const [nameType, setNameType] = useState("");
   const [file, setFile] = useState(null);
   const [info, setInfo] = useState([]);
 
@@ -49,7 +51,8 @@ const CreateDevice = observer(({ isOpen, setIsOpen }) => {
     formData.append("price", price);
     formData.append("img", file);
     formData.append("typeId", device.selectedType.id);
-    console.log(info.length);
+    formData.append("shortDescription", shortDescription);
+    formData.append("nameType", nameType);
     formData.append("info", JSON.stringify(info));
     createDevice(formData).then((data) => setIsOpen(false));
   };
@@ -85,6 +88,19 @@ const CreateDevice = observer(({ isOpen, setIsOpen }) => {
                 value={price}
                 onChange={(e) => setPrice(Number(e.target.value))}
               />
+              <InputForm
+                placeholder={"Введите название типа"}
+                type={"text"}
+                autoComplete="new-type"
+                value={nameType}
+                onChange={(e) => setNameType(e.target.value)}
+              />
+              <textarea
+                onChange={(e) => setShortDescription(e.target.value)}
+                value={shortDescription}
+                className="max-h-24 min-h-24 p-2 mt-2 rounded-md border border-gray-300"
+                placeholder="Введите краткое описание"
+              ></textarea>
               <InputForm
                 type={"file"}
                 autoComplete="new-category"

@@ -6,7 +6,7 @@ const ApiError = require("../error/apiError");
 class DeviceController {
   async create(req, res, next) {
     try {
-      let { name, price, typeId, info } = req.body;
+      let { name, price, typeId, info, shortDescription, nameType } = req.body;
       const { img } = req.files;
       let fileName = uuid.v4() + ".png";
       img.mv(path.resolve(__dirname, "..", "static", fileName));
@@ -14,6 +14,8 @@ class DeviceController {
         name,
         price,
         typeId,
+        shortDescription,
+        nameType,
         img: fileName,
       });
 
@@ -57,7 +59,6 @@ class DeviceController {
       include: [{ model: DeviceInfo, as: "info" }],
     });
     return res.json({ device, info: device.info });
-
   }
 }
 

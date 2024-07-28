@@ -31,6 +31,8 @@ const Device = sequelize.define("device", {
   name: { type: DataTypes.STRING, unique: true, allowNull: false },
   price: { type: DataTypes.INTEGER, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },
+  shortDescription: { type: DataTypes.STRING, allowNull: true },
+  nameType: { type: DataTypes.STRING, allowNull: true },
   typeId: { type: DataTypes.INTEGER },
 });
 
