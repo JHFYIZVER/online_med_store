@@ -22,11 +22,12 @@ import NotFound from "./pages/404";
 import Category from "./pages/Shop";
 
 export const authRoutes = [
-  { path: ADMIN_ROUTE, Component: Admin },
   { path: BASKET_ROUTE, Component: Basket },
   { path: PROFILE_ROUTE, Component: UserPage },
   { path: PAYMENT_ROUTE, Component: Payment },
 ];
+
+export const privateRoutes = [{ path: ADMIN_ROUTE, Component: Admin }];
 
 export const publicRoutes = [
   { path: DEVICE_ROUTE + "/:id", Component: DevicePage },

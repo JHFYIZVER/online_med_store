@@ -5,14 +5,26 @@ import DeviceList from "../components/DeviceList";
 import { observer } from "mobx-react-lite";
 import { Context } from "../main";
 import { fetchDevice, fetchType } from "../http/deviceApi";
+import Pages from "../components/Pages";
 
 const Shop = observer(() => {
   const { device } = useContext(Context);
 
   useEffect(() => {
     fetchType().then((data) => device.setTypes(data));
-    fetchDevice().then((data) => device.setDevices(data.rows));
+    fetchDevice(null, 1, 1).then((data) => {
+      device.setDevices(data.rows);
+      device.setTotalCount(data.count);
+    });
   }, []);
+
+  useEffect(() => {
+    fetchDevice(device.selectedType.id, device.page, 9).then((data) => {
+      device.setDevices(data.rows);
+      device.setTotalCount(data.count);
+    });
+  }, [device.selectedType, device.page]);
+
   return (
     <main className="max-w-[1440px] mx-auto">
       <BreadCrumbs title={"Оборудование"} />
@@ -20,8 +32,11 @@ const Shop = observer(() => {
         <CategoryList />
         <DeviceList />
       </div>
-      <div className="pagination mx-auto flex items-center justify-between max-w-[340px] py-[80px]">
-        <button className="rounded-[15px] bg-green max-w-[45px] w-full h-[45px] flex items-center justify-center">
+      <div className="pagination mx-auto flex items-center justify-between max-w-[360px] py-[80px]">
+        <button
+          onClick={() => device.page > 1 && device.setPage(device.page - 1)}
+          className="rounded-[15px] bg-green max-w-[45px] w-full h-[45px] flex items-center justify-center"
+        >
           <svg
             width="6"
             height="8"
@@ -37,14 +52,12 @@ const Shop = observer(() => {
             />
           </svg>
         </button>
-        <ul className="flex items-center text-[16px] gap-9 ">
-          <li className="rounded-[15px] cursor-pointer">1</li>
-          <li className="rounded-[15px] cursor-pointer">2</li>
-          <li className="rounded-[15px] cursor-pointer">3</li>
-          <li className="rounded-[15px] cursor-pointer">4</li>
-          <li className="rounded-[15px] cursor-pointer">5</li>
-        </ul>
-        <button className="rounded-[15px] bg-green max-w-[45px] w-full h-[45px] flex items-center justify-center">
+        <Pages />
+        <button
+          onClick={() => device.page < Math.ceil(device.totalCount / device.limit) && device.setPage(device.page + 1)}
+
+          className="rounded-[15px] bg-green max-w-[45px] w-full h-[45px] flex items-center justify-center"
+        >
           <svg
             width="6"
             height="8"

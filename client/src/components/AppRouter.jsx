@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import { authRoutes, publicRoutes } from "../routs";
+import { authRoutes, privateRoutes, publicRoutes } from "../routs";
 import { Context } from "../main";
 import { observer } from "mobx-react-lite";
 
@@ -18,6 +18,12 @@ const AppRouter = observer(() => {
         {publicRoutes.map(({ path, Component }) => {
           return <Route key={path} path={path} element={<Component />} exact />;
         })}
+        {user.role === "ADMIN" &&
+          privateRoutes.map(({ path, Component }) => {
+            return (
+              <Route key={path} path={path} element={<Component />} exact />
+            );
+          })}
       </Routes>
     </>
   );

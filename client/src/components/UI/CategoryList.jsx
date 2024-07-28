@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Listbox,
   ListboxButton,
@@ -19,7 +19,11 @@ const nameSort = [
 const CategoryList = observer(() => {
   const [selected, setSelected] = useState(nameSort[1]);
   const { device } = useContext(Context);
-  console.log(device);
+
+  useEffect(() => {
+    device.setSelectedSort(selected.name);
+  }, [selected]);
+
   return (
     <nav className="max-w-[340px] w-full bg-white p-5 px-[30px] max-h-[560px]">
       <h2 className="text-[#3D3D3D] font-bold text-[18px] pb-4 ">Категории</h2>

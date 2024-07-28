@@ -1,5 +1,4 @@
 import React from "react";
-import cardImg from "../../assets/img/Card_img.png";
 import { useNavigate } from "react-router-dom";
 import { DEVICE_ROUTE } from "../../utils/const";
 
@@ -14,7 +13,7 @@ const ItemCard = ({ device }) => {
     <div className="flex flex-col rounded-[24px] bg-white items-center justify-between max-w-[280px] pb-5  w-full min-h-[400px]">
       <div className="bg-green rounded-t-[24px] relative h-[144px] w-full">
         <img
-          className="absolute top-[-30px] right-9 cursor-pointer"
+          className="absolute top-[-30px] right-9 cursor-pointer max-w-[190px] max-h-[190px] w-full "
           onClick={() => navigate(DEVICE_ROUTE + "/" + device.id)}
           src={import.meta.env.VITE_API_URL +  device.img}
           alt="cardImg"

@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import BreadCrumbs from "../components/UI/BreadCrumbs";
-
 import { useParams } from "react-router-dom";
 import { oneFetchDevice } from "../http/deviceApi";
 
 const DevicePage = () => {
   const [device, setDevice] = useState({ info: [] });
+
   const { id } = useParams();
   useEffect(() => {
     oneFetchDevice(id).then((data) => setDevice(data));
   }, []);
 
+  if (!device.device) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <main className="max-w-[1440px] mx-auto">
-      <BreadCrumbs title={"Тонометр Omron M2 Basic"} />
+      <BreadCrumbs title={device.device.name} />
       <section className="flex gap-24 px-[50px]">
         <div>
           <img
@@ -68,7 +72,7 @@ const DevicePage = () => {
               Тонометры, Здоровье
             </p>
             <p className="text-[#727272]">
-              <span className="text-[#ACACAC] pr-1">Категория: </span>Медтехника
+              <span className="text-[#ACACAC] pr-1">Категория: </span>
             </p>
           </div>
         </div>

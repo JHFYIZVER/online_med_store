@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Logo from "./UI/Logo";
 import RegisterModal from "./Form";
 import ModalStore from "../store/ModalStore";
@@ -8,22 +8,34 @@ import {
   CONTACT_ROUTE,
   CATEGORY_ROUTE,
   ADMIN_ROUTE,
+  MAIN_ROUTE,
 } from "../utils/const";
 import { observer } from "mobx-react-lite";
 import { Context } from "../main";
 import { useNavigate } from "react-router-dom";
+import { check } from "../http/userApi";
 
 const Modal = new ModalStore();
 
 const Header = observer(() => {
   const { user } = useContext(Context);
-  console.log(user);
   const navigate = useNavigate();
 
   const logOut = () => {
     user.setUser({});
     user.setIsAuth(false);
+    localStorage.removeItem("token");
+    navigate(MAIN_ROUTE);
   };
+
+  useEffect(() => {
+    check().then((data) => {
+      if (data) {
+        user.setIsRole(data.role);
+      }
+    });
+  }, []);
+
   return (
     <>
       <header>
@@ -122,15 +134,31 @@ const Header = observer(() => {
                 </Link>
                 {user.isAuth ? (
                   <>
-                    <a
-                      onClick={() => navigate(ADMIN_ROUTE)}
-                      className="cursor-pointer"
-                    >
-                      Админ панель
-                    </a>
-                    <a onClick={() => logOut()} className="cursor-pointer">
-                      Выйти
-                    </a>
+                    {user.role === "ADMIN" ? (
+                      <>
+                        <a
+                          onClick={() => navigate(ADMIN_ROUTE)}
+                          className="cursor-pointer"
+                        >
+                          Админ панель
+                        </a>
+                        <a onClick={logOut} className="cursor-pointer">
+                          Выйти
+                        </a>
+                      </>
+                    ) : (
+                      <>
+                        <a
+                          onClick={() => navigate(MAIN_ROUTE)}
+                          className="cursor-pointer"
+                        >
+                          {user.role}
+                        </a>
+                        <a onClick={logOut} className="cursor-pointer">
+                          Выйти
+                        </a>
+                      </>
+                    )}
                   </>
                 ) : (
                   <a
@@ -140,7 +168,6 @@ const Header = observer(() => {
                     Регистрация
                   </a>
                 )}
-
                 <Link to={CONTACT_ROUTE} className="cursor-pointer">
                   Контакты
                 </Link>
