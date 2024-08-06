@@ -5,6 +5,7 @@ class UserStore {
     this._isAuth = false;
     this._user = {};
     this._role = "";
+    this._name = "";
     makeAutoObservable(this);
   }
 
@@ -14,7 +15,11 @@ class UserStore {
 
   setIsRole = (role) => {
     this._role = role;
-  }
+  };
+
+  setIsName = (name) => {
+    this._name = name;
+  };
 
   setUser = (user) => {
     this._user = user;
@@ -30,6 +35,9 @@ class UserStore {
 
   get role() {
     return this._role;
+  }
+  get name() {
+    return this._name;
   }
 }
 

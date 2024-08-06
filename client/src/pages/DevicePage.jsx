@@ -1,17 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BreadCrumbs from "../components/UI/BreadCrumbs";
 import { useParams } from "react-router-dom";
 import { oneFetchDevice } from "../http/deviceApi";
+import { observer } from "mobx-react-lite";
+import { Context } from "../main";
+import { createBasket, fetchBasket, updateBasket } from "../http/basketApi";
+import { check } from "../http/userApi";
 
-const DevicePage = () => {
+const DevicePage = observer(() => {
   const [device, setDevice] = useState({ info: [] });
-
+  const { basket } = useContext(Context);
   const { id } = useParams();
   useEffect(() => {
     oneFetchDevice(id).then((data) => setDevice(data));
   }, []);
 
-  console.log(device);
+  const addDeviceInBasket = async () => {
+    const { id } = await check();
+    let basketData = await fetchBasket(id + 2); // id + 2 - это id корзины, все из-за ебучего рассинхрона, с которым я еблася 3 дня
+    if (!basketData) {
+      basketData = await createBasket();
+    }
+    const existingBasketDevice = basketData.find(
+      (item) => item.deviceId === device.device.id
+    );
+
+    if (existingBasketDevice) {
+      await updateBasket({
+        id: existingBasketDevice.id,
+        count: existingBasketDevice.count + 1,
+      }).then(() => {
+        fetchBasket(id + 2).then((data) => {
+          basket.setBasket(data);
+        });
+      });
+      return;
+    }
+    await createBasket({ deviceId: device.device.id, basketId: id + 2 })
+      .then(() => {
+        fetchBasket(id + 2).then((data) => {
+          basket.setBasket(data);
+        });
+      })
+      .catch((e) => {
+        alert(e.response.data.message);
+        console.log(e);
+      });
+  };
 
   if (!device.device) {
     return <div>Loading...</div>;
@@ -52,9 +87,7 @@ const DevicePage = () => {
             <h2 className="text-[#3D3D3D] pb-3 font-medium">
               Короткое описание
             </h2>
-            <p className="text-[#727272]">
-              {device.device.shortDescription}
-            </p>
+            <p className="text-[#727272]">{device.device.shortDescription}</p>
           </div>
           <div className="flex items-center gap-7">
             <div className="flex items-center gap-7">
@@ -66,7 +99,10 @@ const DevicePage = () => {
                 +
               </button>
             </div>
-            <button className="bg-darkGreen text-white uppercase px-9 py-3 rounded-[5px]">
+            <button
+              onClick={addDeviceInBasket}
+              className="bg-darkGreen text-white uppercase px-9 py-3 rounded-[5px]"
+            >
               Купить
             </button>
           </div>
@@ -76,7 +112,8 @@ const DevicePage = () => {
               Тонометры, Здоровье
             </p>
             <p className="text-[#727272]">
-              <span className="text-[#ACACAC] pr-1">Категория: </span>{device.device.nameType}
+              <span className="text-[#ACACAC] pr-1">Категория: </span>
+              {device.device.nameType}
             </p>
           </div>
         </div>
@@ -94,6 +131,6 @@ const DevicePage = () => {
       </div>
     </main>
   );
-};
+});
 
 export default DevicePage;

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
+    "@pbe/react-yandex-maps": "^1.2.5",
     "axios": "^1.7.2",
     "embla-carousel-react": "^8.1.6",
     "jwt-decode": "^4.0.0",
@@ -18,7 +19,8 @@
     "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.1"
+    "react-router-dom": "^6.24.1",
+    "ymap3-components": "^1.1.6"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

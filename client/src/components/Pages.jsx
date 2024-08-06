@@ -7,7 +7,8 @@ const Pages = observer(() => {
   const pagesCount = Math.ceil(device.totalCount / device.limit);
   const pages = [];
 
-  const clazz = "rounded-[15px] cursor-pointer hover:bg-[#cccccc] w-[45px] h-[45px] flex items-center justify-center"
+  const clazz =
+    "rounded-[15px] cursor-pointer hover:bg-[#cccccc] w-[45px] h-[45px] flex items-center justify-center transition-all";
 
   for (let i = 0; i < pagesCount; i++) {
     pages.push(i + 1);
@@ -19,7 +20,11 @@ const Pages = observer(() => {
         <li
           key={page}
           onClick={() => device.setPage(page)}
-          className={device.page === page ? `${clazz} bg-white hover:bg-[#f1f1f1] text-green` : clazz}
+          className={
+            device.page === page
+              ? `${clazz} bg-white hover:bg-[#f1f1f1]  text-green`
+              : clazz
+          }
         >
           {page}
         </li>

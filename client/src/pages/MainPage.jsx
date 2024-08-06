@@ -5,7 +5,6 @@ import AdvantagesBlock from "../components/UI/AdvantagesBlock";
 import EmblaCarousel from "../components/UI/Carousel/EmblaCarousel";
 import EquipmentCard from "../components/UI/EquipmentCard";
 import medPersonal from "../assets/img/med_personal_main.png";
-import ItemCard from "../components/UI/ItemCard";
 import bgImg from "../assets/img/background_img.png";
 
 import { Link } from "react-router-dom";

@@ -9,6 +9,7 @@ import {
   CATEGORY_ROUTE,
   ADMIN_ROUTE,
   MAIN_ROUTE,
+  BASKET_ROUTE,
 } from "../utils/const";
 import { observer } from "mobx-react-lite";
 import { Context } from "../main";
@@ -32,6 +33,7 @@ const Header = observer(() => {
     check().then((data) => {
       if (data) {
         user.setIsRole(data.role);
+        user.setIsName(data.email);
       }
     });
   }, []);
@@ -152,7 +154,7 @@ const Header = observer(() => {
                           onClick={() => navigate(MAIN_ROUTE)}
                           className="cursor-pointer"
                         >
-                          {user.role}
+                          {user.name}
                         </a>
                         <a onClick={logOut} className="cursor-pointer">
                           Выйти
@@ -173,7 +175,7 @@ const Header = observer(() => {
                 </Link>
               </ul>
             </nav>
-            <div className="header-basket flex items-center gap-[15px]">
+            <Link to={BASKET_ROUTE} className="header-basket flex items-center gap-[15px]">
               <p>Корзина</p>
               <svg
                 width="29"
@@ -187,7 +189,7 @@ const Header = observer(() => {
                   fill="white"
                 />
               </svg>
-            </div>
+            </Link>
           </div>
         </div>
       </header>

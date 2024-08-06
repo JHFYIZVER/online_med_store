@@ -7,7 +7,6 @@ import { login, registration } from "../http/userApi";
 import { observer } from "mobx-react-lite";
 import { Context } from "../main";
 
-
 const RegisterModal = observer(({ setIsOpen, isOpen }) => {
   const [isRegister, setIsRegister] = useState(true);
   const [authEmail, setAuthEmail] = useState("");
@@ -24,12 +23,12 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
       let data;
       if (isRegister) {
         data = await registration(name, email, password);
-        console.log(data);
       } else {
         data = await login(authEmail, authPassword);
       }
       user.setUser(data);
       user.setIsAuth(true);
+      user.setIsName(data.name);
       setIsOpen(false);
     } catch (e) {
       alert(e.response.data.message);
