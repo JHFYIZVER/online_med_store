@@ -1,7 +1,7 @@
 import React from "react";
-import contactClock from "../assets/img/Contact/contact_clock.svg";
-import contactTel from "../assets/img/Contact/contact_tel.svg";
-import contactAddres from "../assets/img/Contact/contact_addres.svg";
+import contactClock from "../../assets/img/Contact/contact_clock.svg";
+import contactTel from "../../assets/img/Contact/contact_tel.svg";
+import contactAddres from "../../assets/img/Contact/contact_addres.svg";
 
 const ContactInfo = () => {
   return (

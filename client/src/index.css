@@ -2,9 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonts */
+
+@font-face {
+  font-family: "Jost";
+  src: url(./assets/fonts/Jost-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/CeraPro-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/CeraPro-RegularItalic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/CeraPro-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/CeraPro-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./assets/fonts/CeraPro-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* /Fonts */
+
+body{
+  font-family: "Jost";
+  background: #FCF5F2;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cera Pro";
+}
+
 ul a {
   position: relative;
 }
+
 
 ul a::before {
   content: "";
@@ -32,7 +124,7 @@ ul a:hover::before {
 
 .wifi-loader {
   background-color: #6eaf7e;
-  color: .414856;
+  color: 0.414856;
   width: 64px;
   height: 64px;
   border-radius: 50px;

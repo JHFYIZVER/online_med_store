@@ -20,7 +20,7 @@ const App = observer(() => {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col h-svh justify-between">
       <Header />
       {loading ? (
         <div className="flex items-center justify-center p-14 h-screen">
@@ -42,13 +42,12 @@ const App = observer(() => {
           </div>
         </div>
       ) : (
-        <div className="bg-[#FCF5F2]">
+        <div>
           <AppRouter />
         </div>
       )}
-
       <Footer />
-    </>
+    </div>
   );
 });
 

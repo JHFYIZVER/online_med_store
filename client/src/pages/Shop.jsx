@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import CategoryList from "../components/UI/CategoryList";
 import BreadCrumbs from "../components/UI/BreadCrumbs";
-import DeviceList from "../components/DeviceList";
+import DeviceList from "../components/Device/DeviceList";
 import { observer } from "mobx-react-lite";
 import { Context } from "../main";
 import { fetchDevice, fetchType } from "../http/deviceApi";
-import Pages from "../components/Pages";
+import Pages from "../components/UI/Pages";
 
 const Shop = observer(() => {
   const { device } = useContext(Context);
