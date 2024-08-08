@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import AppRouter from "./components/AppRouter";
 import Preloader from "./components/UI/Preloader";

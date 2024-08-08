@@ -4,7 +4,7 @@ import {
   useSelectedSnapDisplay,
 } from "./EmblaCarouselSelectedSnapDisplay";
 import useEmblaCarousel from "embla-carousel-react";
-const TWEEN_FACTOR_BASE = 0.2;
+const TWEEN_FACTOR_BASE = 0.15;
 
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);

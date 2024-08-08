@@ -2,8 +2,13 @@ import React from "react";
 import contactClock from "../../assets/img/Contact/contact_clock.svg";
 import contactTel from "../../assets/img/Contact/contact_tel.svg";
 import contactAddres from "../../assets/img/Contact/contact_addres.svg";
+import { observer } from "mobx-react-lite";
+import ModalStore from "../../store/ModalStore";
+import ModalContactUs from "../UI/Modals/ModalContactUs";
 
-const ContactInfo = () => {
+const Modal = new ModalStore();
+
+const ContactInfo = observer(() => {
   return (
     <div className="bg-white max-w-[370px] w-full rounded-3xl p-[40px] relative z-10">
       <ul className="text-[#313131] flex flex-col gap-3 mb-5">
@@ -38,7 +43,10 @@ const ContactInfo = () => {
           </div>
         </li>
       </ul>
-      <button className="absolute flex items-center justify-center gap-3 left-[65px] text-white bg-darkGreen rounded-[20px] max-w-[240px] w-full py-4">
+      <button
+        onClick={() => Modal.setIsOpen(true)}
+        className="absolute flex items-center justify-center gap-3 left-[65px] text-white bg-darkGreen rounded-[20px] max-w-[240px] w-full py-4"
+      >
         Связаться с нами
         <svg
           width="16"
@@ -53,8 +61,9 @@ const ContactInfo = () => {
           />
         </svg>
       </button>
+      <ModalContactUs {...Modal} />
     </div>
   );
-};
+});
 
 export default ContactInfo;
