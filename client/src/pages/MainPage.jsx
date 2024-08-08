@@ -12,7 +12,7 @@ import QuestionAnswer from "../components/Main/QuestionAnswer";
 import BtnShowAll from "../components/Main/BtnShowAll";
 
 import { observer } from "mobx-react-lite";
-import "../components/UI/Carousel/embla.css";
+import "../components/UI/Carousel/MainEmbla.css";
 
 const OPTIONS = {};
 const SLIDE_COUNT = 2;

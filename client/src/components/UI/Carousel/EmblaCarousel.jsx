@@ -19,12 +19,12 @@ const EmblaCarousel = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <section className="main-embla">
+      <div className="main-embla__viewport" ref={emblaRef}>
+        <div className="main-embla__container">
           {slides.map((index) => (
-            <div className="embla__slide " key={index}>
-              <div className="embla__slide__number">
+            <div className="main-embla__slide " key={index}>
+              <div className="main-embla__slide__number">
                 <div className="bg px-[30px] py-[30px] flex items-center justify-between">
                   <div className="img__slide">
                     <img src={itemSlide} alt="item-slide" />

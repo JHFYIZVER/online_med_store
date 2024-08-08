@@ -108,8 +108,8 @@ const DevicePage = observer(() => {
           </div>
           <div className="flex flex-col">
             <p className="text-[#727272]">
-              <span className="text-[#ACACAC] pr-1">Теги: </span>Медтехника,
-              Тонометры, Здоровье
+              <span className="text-[#ACACAC] pr-1">Теги: </span>
+              Медтехника, Здоровье
             </p>
             <p className="text-[#727272]">
               <span className="text-[#ACACAC] pr-1">Категория: </span>

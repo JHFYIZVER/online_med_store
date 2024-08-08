@@ -35,7 +35,11 @@ const CategoryList = observer(() => {
                 ? "font-bold text-darkGreen cursor-pointer"
                 : "cursor-pointer"
             }
-            onClick={() => device.setSelectedType(type)}
+            onClick={() =>
+              type.id === device.selectedType.id
+                ? device.setSelectedType("")
+                : device.setSelectedType(type)
+            }
             key={type.id}
           >
             {type.name}
