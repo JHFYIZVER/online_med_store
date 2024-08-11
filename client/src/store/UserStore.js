@@ -22,7 +22,13 @@ class UserStore {
   };
 
   setUser = (user) => {
-    this._user = user;
+    if (typeof user !== "boolean") {
+      this._user = user;
+    }
+  };
+
+  setUserId = (id) => {
+    this._user.id = id;
   };
 
   get isAuth() {
@@ -31,6 +37,10 @@ class UserStore {
 
   get user() {
     return this._user;
+  }
+
+  get userId() {
+    return this._user.id;
   }
 
   get role() {

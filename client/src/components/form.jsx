@@ -29,7 +29,7 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
       }
       user.setUser(data);
       user.setIsAuth(true);
-      user.setIsName(data.name);
+      user.setIsName(data.email);
       setIsOpen(false);
     } catch (e) {
       alert(e.response.data.message);

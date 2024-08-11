@@ -34,6 +34,7 @@ const Header = observer(() => {
   useEffect(() => {
     check().then((data) => {
       if (data) {
+        user.setUserId(data.id)
         user.setIsRole(data.role);
         user.setIsName(data.email);
       }
