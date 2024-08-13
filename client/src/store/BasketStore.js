@@ -4,7 +4,7 @@ class BasketStore {
   constructor() {
     this._basket = [];
     this._totalPrice = 0;
-    this._totalCount = 0;
+    this._totalCount = 1;
     this._count = 1;
     makeAutoObservable(this);
   }

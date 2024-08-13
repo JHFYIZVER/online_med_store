@@ -21,7 +21,7 @@ const App = observer(() => {
   }, []);
 
   return (
-    <div className="flex flex-col h-svh justify-between">
+    <>
       <Header />
       {loading ? (
         <Preloader />
@@ -31,7 +31,7 @@ const App = observer(() => {
         </div>
       )}
       <Footer />
-    </div>
+    </>
   );
 });
 

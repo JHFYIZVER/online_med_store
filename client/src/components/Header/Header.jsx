@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "../UI/Logo";
 import RegisterModal from "../Form";
 import ModalStore from "../../store/ModalStore";
@@ -9,7 +9,6 @@ import {
   CATEGORY_ROUTE,
   ADMIN_ROUTE,
   MAIN_ROUTE,
-  BASKET_ROUTE,
 } from "../../utils/const";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../main";
@@ -17,11 +16,13 @@ import { useNavigate } from "react-router-dom";
 import { check } from "../../http/userApi";
 import HeaderContactInfo from "./HeaderContactInfo";
 import HeaderBasket from "./HeaderBasket";
+import { Skeleton } from "@mui/material";
 
 const Modal = new ModalStore();
 
 const Header = observer(() => {
   const { user } = useContext(Context);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -32,13 +33,15 @@ const Header = observer(() => {
   };
 
   useEffect(() => {
-    check().then((data) => {
-      if (data) {
-        user.setUserId(data.id)
-        user.setIsRole(data.role);
-        user.setIsName(data.email);
-      }
-    });
+    check()
+      .then((data) => {
+        if (data) {
+          user.setUserId(data.id);
+          user.setIsRole(data.role);
+          user.setIsName(data.email);
+        }
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
@@ -63,41 +66,45 @@ const Header = observer(() => {
                 <Link to={CATEGORY_ROUTE} className="cursor-pointer">
                   Оборудование
                 </Link>
-                {user.isAuth ? (
-                  <>
-                    {user.role === "ADMIN" ? (
-                      <>
-                        <a
-                          onClick={() => navigate(ADMIN_ROUTE)}
-                          className="cursor-pointer"
-                        >
-                          Админ панель
-                        </a>
-                        <a onClick={logOut} className="cursor-pointer">
-                          Выйти
-                        </a>
-                      </>
-                    ) : (
-                      <>
-                        <a
-                          onClick={() => navigate(MAIN_ROUTE)}
-                          className="cursor-pointer"
-                        >
-                          {user.name}
-                        </a>
-                        <a onClick={logOut} className="cursor-pointer">
-                          Выйти
-                        </a>
-                      </>
-                    )}
-                  </>
+                {!isLoading ? (
+                  user.isAuth ? (
+                    <>
+                      {user.role === "ADMIN" ? (
+                        <>
+                          <a
+                            onClick={() => navigate(ADMIN_ROUTE)}
+                            className="cursor-pointer"
+                          >
+                            Админ панель
+                          </a>
+                          <a onClick={logOut} className="cursor-pointer">
+                            Выйти
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          <a
+                            onClick={() => navigate(MAIN_ROUTE)}
+                            className="cursor-pointer"
+                          >
+                            {user.name}
+                          </a>
+                          <a onClick={logOut} className="cursor-pointer">
+                            Выйти
+                          </a>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      onClick={() => Modal.setIsOpen(true)}
+                      className="cursor-pointer"
+                    >
+                      Регистрация
+                    </a>
+                  )
                 ) : (
-                  <a
-                    onClick={() => Modal.setIsOpen(true)}
-                    className="cursor-pointer"
-                  >
-                    Регистрация
-                  </a>
+                  <Skeleton animation="wave" height={20} width={80} />
                 )}
                 <Link to={CONTACT_ROUTE} className="cursor-pointer">
                   Контакты

@@ -1,6 +1,9 @@
-import React from "react";
+import { observer } from "mobx-react-lite";
+import React, { useContext } from "react";
+import { Context } from "../../main";
 
-const PaymentBlock = () => {
+const PaymentBlock = observer(() => {
+  const { basket } = useContext(Context);
   return (
     <div className="flex flex-col max-w-[330px] w-full right-0">
       <h1 className="text-[#3D3D3D] font-black text-[18px]">Корзина</h1>
@@ -18,27 +21,27 @@ const PaymentBlock = () => {
       </div>
       <div className="pt-5 text-[#3D3D3D]">
         <div className="flex justify-between py-2">
-          <p>Промежуточная стоймость:</p>
-          <p>$2,683.00</p>
+          <p>Промежуточная стоимость:</p>
+          <p>{basket.totalPrice}</p>
         </div>
         <div className="flex justify-between py-2">
           <p>Скидка:</p>
-          <p>(-) 00.00</p>
+          <p>0</p>
         </div>
         <div className="flex justify-between py-2">
           <p>Доставка:</p>
-          <p>$16.00</p>
+          <p>500₽</p>
         </div>
       </div>
       <div className="flex justify-between py-7">
         <p className="text-[#3D3D3D] font-bold">Итого</p>
-        <p className="text-darkGreen font-black text-[18px]">$2,699.00</p>
+        <p className="text-darkGreen font-black text-[18px]">{basket.totalPrice + 500}₽</p>
       </div>
       <button className="bg-darkGreen hover:bg-[#3a694c] transition-all text-white h-full px-4 rounded-[5px] py-3">
         Перейти к оплате
       </button>
     </div>
   );
-};
+});
 
 export default PaymentBlock;
