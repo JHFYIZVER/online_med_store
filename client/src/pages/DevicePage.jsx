@@ -8,11 +8,15 @@ import { createBasket, fetchBasket, updateBasket } from "../http/basketApi";
 import { check } from "../http/userApi";
 import Preloader from "../components/UI/Preloader";
 import { Skeleton } from "@mui/material";
+import ModalStore from "../store/ModalStore";
+import ModalSuccessAddToBasket from "../components/UI/Modals/ModalSuccessAddToBasket";
+
+const Modal = new ModalStore();
 
 const DevicePage = observer(() => {
   const [device, setDevice] = useState({ info: [] });
   const [isLoading, setIsLoading] = useState(true);
-  const { basket } = useContext(Context);
+  const { user, basket } = useContext(Context);
   const { id } = useParams();
   useEffect(() => {
     oneFetchDevice(id)
@@ -104,17 +108,15 @@ const DevicePage = observer(() => {
               <p className="text-[#727272]">{device.device.shortDescription}</p>
             </div>
             <div className="flex items-center gap-7">
-              <div className="flex items-center gap-7">
-                <button className="text-white text-2xl bg-darkGreen rounded-full w-[30px] h-[30px] flex items-center justify-center">
-                  -
-                </button>
-                <span className="text-[#3D3D3D] text-2xl">{basket.count}</span>
-                <button className="text-white text-2xl bg-darkGreen rounded-full w-[30px] h-[30px] flex items-center justify-center">
-                  +
-                </button>
-              </div>
               <button
-                onClick={addDeviceInBasket}
+                onClick={() => {
+                  if (user.isAuth) {
+                    addDeviceInBasket();
+                    Modal.setIsOpen(true);
+                  } else {
+                    alert("Сначала войдите в свой аккаунт");
+                  }
+                }}
                 className="bg-darkGreen text-white uppercase px-9 py-3 rounded-[5px]"
               >
                 Купить
@@ -178,6 +180,7 @@ const DevicePage = observer(() => {
           )}
         </div>
       </div>
+      <ModalSuccessAddToBasket {...Modal} name={device.device.name} />
     </main>
   );
 });

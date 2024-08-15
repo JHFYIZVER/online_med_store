@@ -10,7 +10,7 @@ const NoItems = () => {
       <img src={emptyBasket} alt="emptyBasket" />
       <h2 className="text-[#282739] font-bold text-2xl">Ваша корзина пуста</h2>
       <p className="text-sm">Добавьте в нее товары из каталога</p>
-      <button onClick={() => navigate(CATEGORY_ROUTE)}>
+      <button className="bg-darkGreen text-white px-9 py-3 rounded-[5px]" onClick={() => navigate(CATEGORY_ROUTE)}>
         Перейти в каталог
       </button>
     </div>
