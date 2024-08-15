@@ -25,7 +25,7 @@ const Basket = observer(() => {
   }, []);
 
   return (
-    <main>
+    <main className="max-w-[1440px] mx-auto">
       <BreadCrumbs title={"Корзина"} />
       {basket.basket.length && !loading ? (
         <div className="flex items-start justify-between p-[50px]">

@@ -21,7 +21,11 @@ const BasketDeviceItem = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    basket.setTotalPrice(basket.totalPrice + price);
+    if (basket.totalPrice === 0) {
+      basket.setTotalPrice(price);
+    } else {
+      basket.setTotalPrice(basket.totalPrice + price);
+    }
   }, []);
 
   const setIncrease = async () => {
@@ -43,8 +47,8 @@ const BasketDeviceItem = ({
       setBasketCount(basketCount - 1);
       await changeCount(idProduct, basketCount - 1);
     }
-    basket.setTotalCount(totalCount);
-    basket.setTotalPrice(totalPrice);
+    await basket.setTotalCount(totalCount);
+    await basket.setTotalPrice(totalPrice);
   };
 
   return (

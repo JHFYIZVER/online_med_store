@@ -1,9 +1,12 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext } from "react";
 import { Context } from "../../main";
+import { useNavigate } from "react-router-dom";
+import { PAYMENT_ROUTE } from "../../utils/const";
 
 const PaymentBlock = observer(() => {
   const { basket } = useContext(Context);
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col max-w-[330px] w-full right-0">
       <h1 className="text-[#3D3D3D] font-black text-[18px]">Корзина</h1>
@@ -35,9 +38,14 @@ const PaymentBlock = observer(() => {
       </div>
       <div className="flex justify-between py-7">
         <p className="text-[#3D3D3D] font-bold">Итого</p>
-        <p className="text-darkGreen font-black text-[18px]">{basket.totalPrice + 500}₽</p>
+        <p className="text-darkGreen font-black text-[18px]">
+          {basket.totalPrice + 500}₽
+        </p>
       </div>
-      <button className="bg-darkGreen hover:bg-[#3a694c] transition-all text-white h-full px-4 rounded-[5px] py-3">
+      <button
+        onClick={() => navigate(PAYMENT_ROUTE)}
+        className="bg-darkGreen hover:bg-[#3a694c] transition-all text-white h-full px-4 rounded-[5px] py-3"
+      >
         Перейти к оплате
       </button>
     </div>
