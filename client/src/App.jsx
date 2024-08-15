@@ -23,13 +23,7 @@ const App = observer(() => {
   return (
     <>
       <Header />
-      {loading ? (
-        <Preloader />
-      ) : (
-        <div>
-          <AppRouter />
-        </div>
-      )}
+      {loading ? <Preloader /> : <AppRouter />}
       <Footer />
     </>
   );

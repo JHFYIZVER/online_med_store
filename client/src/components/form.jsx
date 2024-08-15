@@ -91,7 +91,7 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
                   <>
                     <h3>Введите почту и пароль для регистрации.</h3>
                     <form
-                      className="flex flex-col items-center justify-center"
+                      className="flex flex-col items-center justify-center max-w-[300px] w-full"
                       action=""
                     >
                       <InputForm
@@ -123,7 +123,7 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
                   <>
                     <h3>Введите имя пользователя и пароль для входа.</h3>
                     <form
-                      className="flex flex-col items-center justify-center"
+                      className="flex flex-col items-center justify-center max-w-[300px] w-full"
                       action=""
                     >
                       <InputForm
