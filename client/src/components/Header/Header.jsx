@@ -17,12 +17,19 @@ import { check } from "../../http/userApi";
 import HeaderContactInfo from "./HeaderContactInfo";
 import HeaderBasket from "./HeaderBasket";
 import { Skeleton } from "@mui/material";
+import "./Header.scss";
+import { LockClosedIcon } from "@heroicons/react/16/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 
 const Modal = new ModalStore();
 
 const Header = observer(() => {
   const { user } = useContext(Context);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const clazz = "open ";
+  const clazzSecond =
+    "header-bar flex items-center justify-between px-[40px] py-[20px] h-[100px] mx-auto text-white text-[20px] max-w-[1440px]";
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -48,13 +55,17 @@ const Header = observer(() => {
     <>
       <header>
         <div className="header-wrapper bg-white">
-          <div className="header-upper flex items-center justify-between px-[40px] py-[20px] h-[100px] max-w-[1440px] w-full mx-auto ">
+          <div className="header-upper flex items-center justify-between gap-5 px-[40px] py-[20px] h-[100px] max-w-[1440px] w-full mx-auto ">
             <Logo />
             <HeaderContactInfo />
+            <span
+              onClick={() => setIsOpen(!isOpen)}
+              className={isOpen ? clazz + " menu-btn" : "menu-btn"}
+            ></span>
           </div>
         </div>
         <div className="header-wrapper bg-green">
-          <div className="header-bar flex items-center justify-between px-[40px] py-[20px] h-[100px] mx-auto text-white text-[20px] max-w-[1440px]">
+          <div className={isOpen ? clazz + clazzSecond : clazzSecond}>
             <nav className="header-nav-bar max-w-[700px] w-full">
               <ul className="flex items-center justify-between ">
                 <Link to={"/"} className="cursor-pointer">

@@ -1,0 +1,147 @@
+/* Breakpoint 963px */
+
+@media (max-width: 963px) {
+  .header-upper {
+    .header-contact-info {
+      display: none;
+    }
+  }
+  .header-wrapper {
+    .header-bar {
+      font-size: 15px;
+    }
+
+    .header-nav-bar {
+      max-width: 500px;
+    }
+  }
+
+  .header-basket {
+    svg {
+      max-width: 20px;
+    }
+  }
+
+  .menu-btn {
+    display: none;
+  }
+}
+
+/* Breakpoint 740px */
+
+@media (max-width: 730px) {
+  .header-wrapper {
+    .header-bar {
+      position: fixed;
+      top: 0;
+      left: -320px;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      background-color: white;
+      color: #282739;
+
+      width: 320px;
+      height: 100%;
+      z-index: 99;
+
+      transition: transform 0.4s ease-in;
+     
+      &.open{
+         transform: translateX(320px);
+      }
+
+      .header-nav-bar {
+        ul {
+          flex-direction: column;
+
+          a {
+            text-align: center;
+            padding: 20px 0;
+            width: 290px;
+            border-top: 1px solid #eaebed;
+
+            &:first-child {
+              border: none;
+            }
+
+            &:last-child {
+              border-bottom: 1px solid #eaebed;
+            }
+
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .header-basket {
+        padding-top: 20px;
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .menu-btn {
+    display: block;
+    position: relative;
+    width: 16px;
+    height: 4px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(
+      45deg,
+      rgb(40, 158, 103) 0%,
+      rgba(40, 158, 103) 100%
+    );
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    cursor: pointer;
+
+    &:hover:not(.open) {
+      width: 30px;
+    }
+
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 4px;
+      left: 0;
+      background: linear-gradient(
+        45deg,
+        rgb(40, 158, 103) 0%,
+        rgba(40, 158, 103) 100%
+      );
+      transition: all 0.5s;
+    }
+
+    &:before {
+      top: -12px;
+    }
+
+    &:after {
+      top: 12px;
+    }
+
+    &.open {
+      transform: translate(-50%, -50%) rotate(225deg);
+    }
+
+    &.open:before,
+    &.open:after {
+      top: 0px;
+    }
+
+    &.open:after {
+      transform: rotate(90deg);
+      width: 40px;
+    }
+  }
+}
