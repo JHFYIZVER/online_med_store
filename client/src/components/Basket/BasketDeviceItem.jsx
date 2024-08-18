@@ -21,12 +21,10 @@ const BasketDeviceItem = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (basket.totalPrice === 0) {
-      basket.setTotalPrice(price);
-    } else {
-      basket.setTotalPrice(basket.totalPrice + price);
-    }
-  }, []);
+    basket.setTotalPrice(
+      basket.basket.reduce((acc, item) => acc + item.device.price, 0)
+    );
+  }, [basket.basket]);
 
   const setIncrease = async () => {
     setBasketCount(basketCount + 1);
