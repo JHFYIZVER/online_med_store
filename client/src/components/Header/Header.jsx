@@ -127,6 +127,10 @@ const Header = observer(() => {
         </div>
       </header>
       <RegisterModal {...Modal} />
+      <div
+        onClick={() => setIsOpen(false)}
+        className={isOpen ? "background open" : "background"}
+      ></div>
     </>
   );
 });

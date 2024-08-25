@@ -1,0 +1,19 @@
+/* Breakpoint 940px */
+
+@media (max-width: 940px) {
+  footer {
+    .footer-info {
+      flex-wrap: wrap;
+      padding: 20px;
+
+      .header-logo {
+        order: 2;
+      }
+      .footer-contact {
+        flex-wrap: wrap;
+        gap: 30px;
+        order: 1;
+      }
+    }
+  }
+}

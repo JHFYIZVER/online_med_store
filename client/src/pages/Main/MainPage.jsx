@@ -1,18 +1,19 @@
-import discountTag from "../assets/img/Main/tag_discount.png";
-import reputation from "../assets/img/Main/lvl_up.png";
-import basket from "../assets/img/Main/basket.png";
-import AdvantagesBlock from "../components/UI/AdvantagesBlock";
-import EmblaCarousel from "../components/UI/Carousel/EmblaCarousel";
-import EquipmentCard from "../components/UI/EquipmentCard";
-import medPersonal from "../assets/img/Main/med_personal_main.png";
-import bgImg from "../assets/img/background_img.png";
-import ModalStore from "../store/ModalStore";
-import ModalContactUs from "../components/UI/Modals/ModalContactUs";
-import QuestionAnswer from "../components/Main/QuestionAnswer";
-import BtnShowAll from "../components/Main/BtnShowAll";
+import discountTag from "../../assets/img/Main/tag_discount.png";
+import reputation from "../../assets/img/Main/lvl_up.png";
+import basket from "../../assets/img/Main/basket.png";
+import AdvantagesBlock from "../../components/UI/AdvantagesBlock";
+import EmblaCarousel from "../../components/UI/Carousel/EmblaCarousel";
+import EquipmentCard from "../../components/UI/EquipmentCard";
+import medPersonal from "../../assets/img/Main/med_personal_main.png";
+import bgImg from "../../assets/img/background_img.png";
+import ModalStore from "../../store/ModalStore";
+import ModalContactUs from "../../components/UI/Modals/ModalContactUs";
+import QuestionAnswer from "../../components/Main/QuestionAnswer";
+import BtnShowAll from "../../components/Main/BtnShowAll";
 
 import { observer } from "mobx-react-lite";
-import "../components/UI/Carousel/MainEmbla.css";
+import "../../components/UI/Carousel/MainEmbla.css";
+import "./Main.scss";
 
 const OPTIONS = {};
 const SLIDE_COUNT = 2;
@@ -28,7 +29,7 @@ const MainPage = observer(() => {
         <h2 className="text-center text-[#282739] text-[36px] pt-[60px] pb-[100px] font-semibold">
           Почему мы?
         </h2>
-        <div className="flex flex-wrap items-center justify-center gap-5">
+        <div className="advantages-list flex items-center justify-center gap-5">
           <AdvantagesBlock
             src={discountTag}
             clazz="max-w-[270px] top-[-100px]"
@@ -37,7 +38,7 @@ const MainPage = observer(() => {
           />
           <AdvantagesBlock
             src={basket}
-            clazz="top-[-110px]"
+            clazz="top-[-90px]"
             title={"Широкий ассортимент"}
             disription={"Более 7000 медицинских товаров"}
           />
@@ -88,7 +89,9 @@ const MainPage = observer(() => {
             Есть вопросы, на которые нужно получить ответ?
           </h2>
           <ul className="flex flex-col gap-4 py-8">
-            <QuestionAnswer title={"Мы подберем для вас подходящее оборудование"}/>
+            <QuestionAnswer
+              title={"Мы подберем для вас подходящее оборудование"}
+            />
             <QuestionAnswer title={"Ответим на все интересующие вопросы"} />
             <QuestionAnswer title={"Ответим на все интересующие вопросы"} />
           </ul>

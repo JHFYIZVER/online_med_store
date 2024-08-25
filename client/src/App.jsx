@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import AppRouter from "./components/AppRouter";
 import Preloader from "./components/UI/Preloader";
 import { observer } from "mobx-react-lite";

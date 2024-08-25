@@ -1,0 +1,78 @@
+/* Breakpoint 1200px */
+
+@media (max-width: 1280px) {
+  main {
+    .section-carousel {
+      
+    }
+  }
+}
+
+/* Breakpoint 1120px */
+
+@media (max-width: 1120px) {
+  main {
+    .section-carousel {
+      .advantages-list {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+/* Breakpoint 860px */
+
+@media (max-width: 860px) {
+  main {
+    .section-carousel {
+
+      .main-embla{
+         flex-wrap: wrap;
+      }
+
+      .main-embla__viewport{
+         order: 1;
+      }
+
+      .main-embla__button--next{
+         order: 2;
+      }
+
+      .main-embla__button--prev{
+         order: 2;
+      }
+
+      .advantages-list {
+        flex-wrap: wrap;
+        div {
+          max-width: 270px;
+          max-height: max-content;
+          font-size: 16px;
+          div {
+            text-align: center;
+            padding: 40px;
+          }
+
+          img {
+            top: -60px;
+            max-width: 100px;
+            max-height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 660px */
+
+@media (max-width: 660px) {
+  main {
+    .section-carousel {
+      .advantages-list {
+        flex-wrap: wrap;
+        gap: 70px;
+      }
+    }
+  }
+}

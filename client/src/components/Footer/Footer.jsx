@@ -1,10 +1,12 @@
 import React from "react";
-import Logo from "./UI/Logo";
+import Logo from "../UI/Logo";
+
+import "./Footer.scss";
 
 const Footer = () => {
   return (
     <footer className="bg-[#272728] text-white">
-      <div className="px-[40px] py-[40px] flex items-center justify-between max-w-[1440px] w-full mx-auto">
+      <div className="footer-info px-[40px] py-[40px] flex gap-10 items-center justify-between max-w-[1440px] w-full mx-auto">
         <Logo />
         <div className="footer-contact flex items-center justify-between max-w-[700px] w-full">
           <div className="flex items-center gap-[15px]">
@@ -85,12 +87,12 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-[#969696]"></div>
-      <div className="px-[40px] py-[20px] h-[90px] flex items-center justify-between max-w-[1440px] w-full mx-auto">
+      <hr/>
+      <div className="px-[40px] py-[20px] gap-5 min-h-[90px] flex flex-wrap items-center justify-between max-w-[1440px] w-full mx-auto">
         <span className="text-[#D4D4D4]">
           © 2024 ЗабайкалМедснаб. - All rights reserved.
         </span>
-        <div className="flex items-center justify-between max-w-[450px] w-full">
+        <div className="flex flex-wrap gap-5 items-center justify-between max-w-[450px] w-full">
           <ul className="flex items-center gap-[46px]">
             <li className="cursor-pointer">
               <a>Privacy</a>

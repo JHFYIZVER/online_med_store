@@ -15,7 +15,7 @@ import Basket from "./pages/Basket";
 import UserPage from "./pages/UserPage";
 import Payment from "./pages/Payment";
 import DevicePage from "./pages/DevicePage";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/Main/MainPage";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/404";
