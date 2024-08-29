@@ -90,7 +90,7 @@ const ModalContactUs = observer(({ setIsOpen, isOpen }) => {
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="rounded-full bg-[#D9D9D9] max-w-12 w-full flex items-center justify-center h-12 absolute -top-8 -right-6 shadow-[0_0_30px_rgba(255,255,255,0.8)] "
+                className="rounded-full bg-[#D9D9D9] max-w-12 w-full flex items-center justify-center h-12 absolute -top-8 -right-3 shadow-[0_0_30px_rgba(255,255,255,0.8)] "
               >
                 <svg
                   width="15"

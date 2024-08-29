@@ -1,12 +1,12 @@
-import ButtonForm from "./UI/ButtonForm";
-import InputForm from "./UI/InputForm";
-
+import ButtonForm from "../UI/ButtonForm";
+import InputForm from "../UI/InputForm";
 import { AnimatePresence, motion } from "framer-motion";
 import { Dialog, DialogTitle, DialogPanel } from "@headlessui/react";
 import { useContext, useState } from "react";
-import { login, registration } from "../http/userApi";
+import { login, registration } from "../../http/userApi";
 import { observer } from "mobx-react-lite";
-import { Context } from "../main";
+import { Context } from "../../main";
+import "./Form.scss"
 
 const RegisterModal = observer(({ setIsOpen, isOpen }) => {
   const [isRegister, setIsRegister] = useState(true);
@@ -40,7 +40,7 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
     <AnimatePresence>
       {isOpen && (
         <Dialog
-          className="relative z-50"
+          className="register-modal relative z-50"
           static
           open={isOpen}
           onClose={() => setIsOpen(false)}

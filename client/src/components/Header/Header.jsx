@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Logo from "../UI/Logo";
-import RegisterModal from "../Form";
+import RegisterModal from "../RegirserModal/Form";
 import ModalStore from "../../store/ModalStore";
 import { Link } from "react-router-dom";
 import {
@@ -18,7 +18,6 @@ import HeaderContactInfo from "./HeaderContactInfo";
 import HeaderBasket from "./HeaderBasket";
 import { Skeleton } from "@mui/material";
 import "./Header.scss";
-
 
 const Modal = new ModalStore();
 
