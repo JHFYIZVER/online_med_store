@@ -50,11 +50,11 @@ const BasketDeviceItem = ({
   };
 
   return (
-    <div className="flex items-center max-w-[790px] w-full bg-[#FBFBFB] my-2 rounded-md">
+    <div className="basket-list-item flex items-center max-w-[790px] w-full bg-[#FBFBFB] my-2 rounded-md">
       {!loading ? (
         <div
           onClick={() => navigate(DEVICE_ROUTE + "/" + id)}
-          className="flex items-center gap-4 flex-[40%] cursor-pointer"
+          className="basket-img flex items-center gap-4 flex-[40%] cursor-pointer"
         >
           <img
             className="max-w-[70px] w-full max-h-[70px] h-full"
@@ -69,8 +69,8 @@ const BasketDeviceItem = ({
       ) : (
         <Skeleton animation="wave" variant="rectangle" width={70} height={70} />
       )}
-      <p className="text-[#727272] flex-[20%]">{price}</p>
-      <div className="flex flex-[20%] gap-2">
+      <p className="basket-price text-[#727272] flex-[20%]">{price}₽</p>
+      <div className="basket-count flex flex-[20%] gap-2">
         <button
           onClick={setDecrease}
           className="text-white text-xl bg-darkGreen rounded-full w-[20px] h-[20px] flex items-center justify-center"
@@ -85,8 +85,13 @@ const BasketDeviceItem = ({
           +
         </button>
       </div>
-      <p className="text-darkGreen flex-[10%]">{price * basketCount}</p>
-      <button className="flex-[10%]" onClick={() => deliteItem(idProduct)}>
+      <p className="basket-total-price text-darkGreen flex-[10%]">
+        {price * basketCount}₽
+      </p>
+      <button
+        className="basket-delite-btn flex-[10%]"
+        onClick={() => deliteItem(idProduct)}
+      >
         <img src={deliteItemImg} alt="deliteItem" />
       </button>
     </div>

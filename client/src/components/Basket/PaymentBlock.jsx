@@ -8,7 +8,7 @@ const PaymentBlock = observer(() => {
   const { basket } = useContext(Context);
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col max-w-[330px] w-full right-0">
+    <div className="payment-block flex flex-col max-w-[330px] w-full right-0">
       <h1 className="text-[#3D3D3D] font-black text-[18px]">Корзина</h1>
       <hr className="bg-[#46A358]/50" />
       <p className="py-3">Промокод</p>

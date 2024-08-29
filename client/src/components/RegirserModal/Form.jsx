@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { login, registration } from "../../http/userApi";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../main";
-import "./Form.scss"
+import "./Form.scss";
 
 const RegisterModal = observer(({ setIsOpen, isOpen }) => {
   const [isRegister, setIsRegister] = useState(true);
@@ -57,7 +57,7 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="popup relative bg-white flex justify-center flex-col py-[50px] border-[#3D8072] border-b-[10px] max-w-[500px] w-full overflow-y-auto "
+              className="popup relative bg-white flex justify-center flex-col py-[50px] border-[#3D8072] border-b-[10px] max-w-[500px] w-full overflow-y-auto"
             >
               <div className="title-popup flex items-center justify-center gap-[10px] mb-[50px] text-[20px] font-medium">
                 <DialogTitle
@@ -89,7 +89,9 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
               <div className="content flex flex-col items-center justify-center">
                 {isRegister ? (
                   <>
-                    <h3>Введите почту и пароль для регистрации.</h3>
+                    <h3 className="text-center">
+                      Введите почту и пароль для регистрации.
+                    </h3>
                     <form
                       className="flex flex-col items-center justify-center max-w-[300px] w-full"
                       action=""
@@ -121,7 +123,9 @@ const RegisterModal = observer(({ setIsOpen, isOpen }) => {
                   </>
                 ) : (
                   <>
-                    <h3>Введите имя пользователя и пароль для входа.</h3>
+                    <h3 className="text-center">
+                      Введите имя пользователя и пароль для входа.
+                    </h3>
                     <form
                       className="flex flex-col items-center justify-center max-w-[300px] w-full"
                       action=""

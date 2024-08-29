@@ -11,7 +11,7 @@ import {
   MAIN_ROUTE,
 } from "./utils/const";
 import Admin from "./pages/Admin";
-import Basket from "./pages/Basket";
+import Basket from "./pages/Basket/Basket";
 import UserPage from "./pages/UserPage";
 import Payment from "./pages/Payment";
 import DevicePage from "./pages/DevicePage/DevicePage";

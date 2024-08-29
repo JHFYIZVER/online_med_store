@@ -1,0 +1,81 @@
+/* Breakpoint 993px */
+
+@media (max-width: 993px) {
+  main {
+    .basket-content {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
+
+/* Breakpoint 585px */
+
+@media (max-width: 585px) {
+  main {
+    .basket-content {
+      .basket-list-item {
+        min-height: 200px;
+        flex-wrap: wrap;
+        padding: 10px;
+
+        .basket-img {
+          order: 1;
+          flex: 90%;
+          h2 {
+            max-width: none;
+            flex-direction: row;
+            gap: 20px;
+          }
+        }
+        .basket-count {
+          order: 2;
+          flex: 50%;
+        }
+        .basket-price {
+          order: 3;
+          text-align: end;
+          flex: 50%;
+          &::after {
+            content: " /шт";
+          }
+        }
+
+        .basket-total-price {
+          order: 4;
+          flex: 50%;
+          font-size: 18px;
+          font-weight: bold;
+
+          &::before {
+            content: "Итого: ";
+          }
+        }
+        .basket-delite-btn {
+          order: 1;
+          flex: 10%;
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 375px */
+
+@media (max-width: 375px) {
+  main {
+    .basket-content {
+      .basket-list-item {
+        .basket-img {
+          order: 1;
+          flex: 90%;
+          h2 {
+            max-width: none;
+            flex-direction: column;
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+}

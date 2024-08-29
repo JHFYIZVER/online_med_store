@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import BreadCrumbs from "../components/UI/BreadCrumbs";
-import PaymentBlock from "../components/Basket/PaymentBlock";
-import BasketList from "../components/Basket/BasketList";
+import BreadCrumbs from "../../components/UI/BreadCrumbs";
+import PaymentBlock from "../../components/Basket/PaymentBlock";
+import BasketList from "../../components/Basket/BasketList";
 import { observer } from "mobx-react-lite";
-import { Context } from "../main";
-import { fetchBasket } from "../http/basketApi";
-import NoItems from "../components/Basket/NoItems";
+import { Context } from "../../main";
+import { fetchBasket } from "../../http/basketApi";
+import NoItems from "../../components/Basket/NoItems";
+import "./Basket.scss";
 
 const Basket = observer(() => {
   const { user, basket } = useContext(Context);
@@ -28,7 +29,7 @@ const Basket = observer(() => {
     <main className="max-w-[1440px] mx-auto">
       <BreadCrumbs title={"Корзина"} />
       {basket.basket.length && !loading ? (
-        <div className="flex items-start justify-between p-[50px]">
+        <div className="basket-content flex gap-7 items-start justify-between p-[50px]">
           <div className="max-w-[790px] w-full">
             <ul className="flex w-full font-black text-[#3D3D3D] border-b">
               <li className="flex-[40%]">Товар</li>
