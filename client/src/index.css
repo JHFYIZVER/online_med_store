@@ -82,9 +82,9 @@
 
 /* /Fonts */
 
-body{
+body {
   font-family: "Jost";
-  background: #FCF5F2;
+  background: #fcf5f2;
 }
 
 h1,
@@ -96,7 +96,6 @@ h3 {
 ul a {
   position: relative;
 }
-
 
 ul a::before {
   content: "";
@@ -277,5 +276,16 @@ ul a:hover::before {
   }
   100% {
     clip-path: inset(0 0 0 100%);
+  }
+}
+
+@media (max-width: 425px) {
+  main .px-\[50px\] {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  main .p-\[50px\] {
+    padding: 25px;
   }
 }

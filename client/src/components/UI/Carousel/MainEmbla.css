@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  --slide-height: 335px;
+  --slide-height: max(335px, 0);
   --slide-spacing: 1rem;
   --slide-size: 100%;
 }
@@ -30,10 +30,10 @@
   border-radius: 20px;
   font-size: 4rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: var(--slide-height);
+  min-height: 150px;
+  background-image: url(../../../assets/img/Carousel.jpg);
+  background-size: cover;
 }
 .main-embla__controls {
   display: grid;
@@ -61,8 +61,8 @@
   padding: 0;
   margin: 0;
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
-  min-width: 3.6rem;
-  height: 3.6rem;
+  min-width: 50px;
+  min-height: 50px;
   z-index: 0;
   border-radius: 50%;
   color: var(--text-body);
@@ -75,25 +75,10 @@
 
 .inside-arrow {
   background: linear-gradient(322.12deg, #80bf90 1.25%, #4b9491 89.56%);
-  width: 70%;
-  height: 70%;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 .main-embla__button:disabled {
   color: var(--detail-high-contrast);
-}
-.main-embla__button__svg {
-  width: 35%;
-  height: 35%;
-}
-
-.bg {
-  background-image: url(../../../assets/img/Carousel.jpg);
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  background-size: contain;
-  object-fit: contain;
-  background-repeat: no-repeat;
 }

@@ -25,17 +25,15 @@ const EmblaCarousel = (props) => {
         <div className="main-embla__container">
           {slides.map((index) => (
             <div className="main-embla__slide " key={index}>
-              <div className="main-embla__slide__number">
-                <div className="bg px-[30px] py-[30px] flex items-center justify-between">
-                  <div className="img__slide max-w-full">
-                    <img src={itemSlide} alt="item-slide" />
-                  </div>
-                  <div className="text__slide text-white flex flex-col h-full justify-end gap-3">
-                    <h1 className="text-[40px]">Тонометры</h1>
-                    <button className="text-[24px] rounded-[5px] bg-[#3D8072] px-[30px] py-[9px]">
-                      Подробнее
-                    </button>
-                  </div>
+              <div className="main-embla__slide__number p-8 flex items-center justify-between">
+                <div className="img__slide max-w-full">
+                  <img className="max-h-[300px]" src={itemSlide} alt="item-slide" />
+                </div>
+                <div className="text__slide text-white flex flex-col justify-end gap-3">
+                  <h1 className="text-[40px]">Тонометры</h1>
+                  <button className="text-[24px] rounded-[5px] bg-[#3D8072] px-[30px] py-[9px]">
+                    Подробнее
+                  </button>
                 </div>
               </div>
             </div>

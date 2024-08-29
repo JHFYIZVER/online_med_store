@@ -162,3 +162,28 @@
     }
   }
 }
+/* Breakpoint 580px */
+
+@media (max-width: 580px) {
+  .header-logo {
+    svg {
+      max-width: 45px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+  }
+}
+
+/* Breakpoint 425px */
+
+@media (max-width: 425px) {
+  .header-logo {
+    svg {
+      max-width: 35px;
+    }
+    h2 {
+      font-size: 16px;
+    }
+  }
+}

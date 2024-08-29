@@ -2,8 +2,26 @@
 
 @media (max-width: 1280px) {
   main {
+    .text-\[40px\] {
+      font-size: clamp(20px, 5vw, 40px);
+    }
     .section-carousel {
-      
+      h1 {
+        font-size: 30px;
+      }
+
+      img {
+        max-height: 250px;
+      }
+
+      .bg {
+        padding: 15px;
+        max-height: fit-content;
+      }
+
+      .main-embla__slide__number {
+        max-width: 950px;
+      }
     }
   }
 }
@@ -20,26 +38,84 @@
   }
 }
 
+/* Breakpoint 1054px */
+
+@media (max-width: 1054px) {
+  main {
+    .consultation {
+      .consultation-question {
+        max-width: 700px;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        div {
+          order: 2;
+          max-width: fit-content;
+          h2 {
+            font-size: clamp(14px, 5vw, 30px);
+            line-height: 30px;
+          }
+          ul {
+            max-width: fit-content;
+            li {
+              font-size: clamp(12px, 3vw, 16px);
+            }
+            svg {
+              min-width: 26px;
+            }
+          }
+        }
+        img {
+          order: 1;
+          top: -300px;
+          max-height: 300px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 1000px */
+
+@media (max-width: 1000px) {
+  main {
+    .section-carousel {
+      img {
+        max-height: 200px;
+      }
+    }
+  }
+}
+
 /* Breakpoint 860px */
 
 @media (max-width: 860px) {
   main {
     .section-carousel {
-
-      .main-embla{
-         flex-wrap: wrap;
+      img {
+        max-height: 200px;
       }
 
-      .main-embla__viewport{
-         order: 1;
+      .main-embla {
+        flex-wrap: wrap;
       }
 
-      .main-embla__button--next{
-         order: 2;
+      .main-embla__viewport {
+        order: 1;
       }
 
-      .main-embla__button--prev{
-         order: 2;
+      .main-embla__button--next {
+        order: 2;
+      }
+
+      .main-embla__button--prev {
+        order: 2;
+      }
+
+      button {
+        max-width: 250px;
+        font-size: 20px;
       }
 
       .advantages-list {
@@ -69,9 +145,96 @@
 @media (max-width: 660px) {
   main {
     .section-carousel {
+      img {
+        max-height: 150px;
+      }
+
       .advantages-list {
         flex-wrap: wrap;
         gap: 70px;
+      }
+    }
+    .consultation {
+      .consultation-question {
+        img {
+          order: 1;
+          top: -200px;
+          max-height: 200px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 590px */
+
+@media (max-width: 590px) {
+  main {
+    .section-carousel {
+      img {
+        max-height: 120px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      button {
+        max-width: 150px;
+        font-size: 15px;
+      }
+
+      .advantages-list {
+        flex-wrap: wrap;
+        gap: 70px;
+      }
+    }
+  }
+}
+
+/* Breakpoint 524px */
+
+@media (max-width: 524px) {
+  main {
+    .section-carousel {
+      h1 {
+        font-size: 15px;
+      }
+
+      button {
+        max-width: 110px;
+        font-size: 12px;
+      }
+
+      .main-embla__slide__number {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+/* Breakpoint 425px */
+
+@media (max-width: 425px) {
+  main {
+    .section-carousel {
+      h1 {
+        font-size: 20px;
+      }
+
+      button {
+        max-width: 90px;
+        font-size: 10px;
+        padding: 10px;
+      }
+
+      .main-embla {
+        .main-embla__button {
+          width: 30px;
+          height: 30px;
+          min-width: none;
+        }
       }
     }
   }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CATEGORY_ROUTE } from "../../utils/const";
 const BtnShowAll = () => {
   return (
-    <button className="flex bg-[#51A594] py-3 text-white items-center gap-6 px-8 mt-10 rounded-tl-[4px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[4px]">
+    <button className="flex bg-[#51A594] py-3 text-white items-center gap-6 px-8 mt-10 rounded-tl-[4px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[4px] z-10">
       <Link to={CATEGORY_ROUTE}>Смотреть все</Link>
       <svg
         width="42"

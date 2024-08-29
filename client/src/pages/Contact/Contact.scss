@@ -1,0 +1,55 @@
+/* Breakpoint 900px */
+
+@media (max-width: 900px) {
+  main {
+    .map {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .contact-info {
+      max-width: none;
+
+      button {
+        left: 40%;
+        transform: translate(-25%, 0);
+      }
+
+      ul {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    iframe {
+      max-height: 300px;
+      position: relative;
+      z-index: 10;
+    }
+  }
+}
+
+/* Breakpoint 819px */
+
+@media (max-width: 819px) {
+  main {
+    .map {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .contact-info {
+      max-width: none;
+
+      button {
+        left: 35%;
+      }
+
+      ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+  }
+}

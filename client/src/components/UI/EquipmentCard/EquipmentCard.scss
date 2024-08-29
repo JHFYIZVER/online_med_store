@@ -1,0 +1,50 @@
+/* Breakpoint 768px */
+
+@media (max-width: 768px) {
+  .equipment-card-list,
+  .popular-product-list {
+    .card {
+      max-width: 250px;
+      min-height: 320px;
+
+      h3 {
+        font-size: clamp(14px, 4vw, 20px);
+      }
+
+      button {
+        max-width: 150px;
+      }
+
+      .card-img {
+        img {
+          max-width: 140px;
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 619px */
+
+@media (max-width: 619px) {
+  .equipment-card-list,
+  .popular-product-list {
+    justify-content: center !important;
+  }
+}
+
+/* Breakpoint 425px */
+
+@media (max-width: 425px) {
+  .equipment-card-list,
+  .popular-product-list {
+    .card {
+      max-width: 210px;
+      min-height: 290px;
+
+      h3 {
+        font-size: clamp(12px, 4vw, 18px);
+      }
+    }
+  }
+}

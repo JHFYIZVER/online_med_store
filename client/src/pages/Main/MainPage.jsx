@@ -3,7 +3,7 @@ import reputation from "../../assets/img/Main/lvl_up.png";
 import basket from "../../assets/img/Main/basket.png";
 import AdvantagesBlock from "../../components/UI/AdvantagesBlock";
 import EmblaCarousel from "../../components/UI/Carousel/EmblaCarousel";
-import EquipmentCard from "../../components/UI/EquipmentCard";
+import EquipmentCard from "../../components/UI/EquipmentCard/EquipmentCard";
 import medPersonal from "../../assets/img/Main/med_personal_main.png";
 import bgImg from "../../assets/img/background_img.png";
 import ModalStore from "../../store/ModalStore";
@@ -26,7 +26,7 @@ const MainPage = observer(() => {
     <main>
       <section className="section-carousel bg-[#F5FFF1] p-[50px] relative">
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-        <h2 className="text-center text-[#282739] text-[36px] pt-[60px] pb-[100px] font-semibold">
+        <h2 className="text-center text-[#282739] text-[40px] pt-[60px] pb-[100px] font-semibold">
           Почему мы?
         </h2>
         <div className="advantages-list flex items-center justify-center gap-5">
@@ -57,7 +57,7 @@ const MainPage = observer(() => {
           alt="bgImg"
           className="absolute bottom-[-170px] right-0 z-0 rotate-180"
         />
-        <h2 className="font-bold text-[40px] pb-[50px]">
+        <h2 className="font-bold text-[40px] text-center pb-[50px]">
           Каталог оборудования
         </h2>
         <div className="equipment-card-list flex flex-wrap items-center justify-between max-w-[1340px] w-full gap-5 z-[1]">
@@ -69,7 +69,9 @@ const MainPage = observer(() => {
         <BtnShowAll />
       </section>
       <section className="popular-product flex flex-col items-center p-[50px] relative">
-        <h2 className="font-bold text-[40px] pb-[50px]">Популярные товары</h2>
+        <h2 className="font-bold text-[40px] text-center pb-[50px]">
+          Популярные товары
+        </h2>
         <div className="popular-product-list flex flex-wrap items-center justify-between max-w-[1340px] w-full gap-5 z-[1]">
           <EquipmentCard />
           <EquipmentCard />
@@ -78,29 +80,31 @@ const MainPage = observer(() => {
         </div>
         <BtnShowAll />
       </section>
-      <section className="text-white pb-[100px] pt-[150px] relative">
+      <section className="consultation text-white pb-[100px] px-[50px] pt-[150px] relative">
         <img
           src={bgImg}
           alt="bgImg"
           className="absolute top-[-50px] left-0 z-0"
         />
-        <div className="bg-darkGreen max-w-[1170px] rounded-[20px] rounded-tl-[130px] mx-auto p-[55px] relative">
-          <h2 className="font-bold text-4xl max-w-[500px]">
-            Есть вопросы, на которые нужно получить ответ?
-          </h2>
-          <ul className="flex flex-col gap-4 py-8">
-            <QuestionAnswer
-              title={"Мы подберем для вас подходящее оборудование"}
-            />
-            <QuestionAnswer title={"Ответим на все интересующие вопросы"} />
-            <QuestionAnswer title={"Ответим на все интересующие вопросы"} />
-          </ul>
-          <button
-            onClick={() => Modal.setIsOpen(true)}
-            className="p-[23px] font-bold bg-green rounded-[60px] max-h-[60px] max-w-[310px] w-full flex items-center justify-center"
-          >
-            Заказать консультацию
-          </button>
+        <div className="consultation-question bg-darkGreen max-w-[1170px] w-full flex justify-between rounded-[20px] rounded-tl-[130px] mx-auto relative">
+          <div className="p-[55px]">
+            <h2 className="font-bold text-4xl max-w-[500px]">
+              Есть вопросы, на которые нужно получить ответ?
+            </h2>
+            <ul className="flex flex-col gap-4 py-8">
+              <QuestionAnswer
+                title={"Мы подберем для вас подходящее оборудование"}
+              />
+              <QuestionAnswer title={"Ответим на все интересующие вопросы"} />
+              <QuestionAnswer title={"Ответим на все интересующие вопросы"} />
+            </ul>
+            <button
+              onClick={() => Modal.setIsOpen(true)}
+              className="p-[23px] font-bold bg-green rounded-[60px] max-h-[60px] max-w-[310px] w-full flex items-center justify-center"
+            >
+              Заказать консультацию
+            </button>
+          </div>
           <img
             src={medPersonal}
             alt="personal"
