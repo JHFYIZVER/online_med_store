@@ -1,0 +1,19 @@
+/* Breakpoint 1050px */
+
+@media (max-width: 1050px) {
+  main {
+    .device-page {
+      flex-wrap: wrap;
+      gap: 20px;
+
+      img {
+        max-width: none;
+        object-fit: contain;
+      }
+
+      div {
+        max-width: none;
+      }
+    }
+  }
+}

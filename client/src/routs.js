@@ -14,7 +14,7 @@ import Admin from "./pages/Admin";
 import Basket from "./pages/Basket";
 import UserPage from "./pages/UserPage";
 import Payment from "./pages/Payment";
-import DevicePage from "./pages/DevicePage";
+import DevicePage from "./pages/DevicePage/DevicePage";
 import MainPage from "./pages/Main/MainPage";
 import Contact from "./pages/Contact/Contact";
 import AboutUs from "./pages/AboutUs";

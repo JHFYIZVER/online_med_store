@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BASKET_ROUTE } from "../../utils/const";
 
-const HeaderBasket = () => {
+const HeaderBasket = ({ setIsOpen }) => {
   return (
     <Link
       to={BASKET_ROUTE}
       className="header-basket flex items-center gap-[15px]"
+      onClick={() => setIsOpen(false)}
     >
       <p>Корзина</p>
       <svg

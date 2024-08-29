@@ -67,7 +67,7 @@ const Header = observer(() => {
         <div className="header-wrapper bg-green">
           <div className={isOpen ? clazz + clazzSecond : clazzSecond}>
             <nav className="header-nav-bar max-w-[700px] w-full">
-              <ul className="flex items-center justify-between ">
+              <ul onClick={() => setIsOpen(false)} className="flex items-center justify-between ">
                 <Link to={"/"} className="cursor-pointer">
                   Главная
                 </Link>
@@ -122,7 +122,7 @@ const Header = observer(() => {
                 </Link>
               </ul>
             </nav>
-            <HeaderBasket />
+            <HeaderBasket setIsOpen={setIsOpen}  />
           </div>
         </div>
       </header>

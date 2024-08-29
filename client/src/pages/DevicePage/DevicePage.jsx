@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import BreadCrumbs from "../components/UI/BreadCrumbs";
+import BreadCrumbs from "../../components/UI/BreadCrumbs";
 import { useParams } from "react-router-dom";
-import { oneFetchDevice } from "../http/deviceApi";
+import { oneFetchDevice } from "../../http/deviceApi";
 import { observer } from "mobx-react-lite";
-import { Context } from "../main";
-import { createBasket, fetchBasket, updateBasket } from "../http/basketApi";
-import { check } from "../http/userApi";
-import Preloader from "../components/UI/Preloader";
+import { Context } from "../../main";
+import { createBasket, fetchBasket, updateBasket } from "../../http/basketApi";
+import { check } from "../../http/userApi";
+import Preloader from "../../components/UI/Preloader";
 import { Skeleton } from "@mui/material";
-import ModalStore from "../store/ModalStore";
-import ModalSuccessAddToBasket from "../components/UI/Modals/ModalSuccessAddToBasket";
+import ModalStore from "../../store/ModalStore";
+import ModalSuccessAddToBasket from "../../components/UI/Modals/ModalSuccessAddToBasket";
+import "./DevicePage.scss";
 
 const Modal = new ModalStore();
 
@@ -64,7 +65,7 @@ const DevicePage = observer(() => {
   return (
     <main className="max-w-[1440px] mx-auto">
       <BreadCrumbs title={device.device.name} />
-      <section className="flex gap-24 px-[50px]">
+      <section className="device-page flex gap-24 px-[50px]">
         {!isLoading ? (
           <img
             className="max-w-[450px] w-full max-h-[490px] bg-gray-400/20 rounded-3xl"

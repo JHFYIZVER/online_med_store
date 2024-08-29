@@ -10,7 +10,7 @@ const Modal = new ModalStore();
 
 const ContactInfo = observer(() => {
   return (
-    <div className="contact-info bg-white max-w-[370px] w-full rounded-3xl p-[40px] relative z-10">
+    <div className="contact-info bg-white max-w-[370px] w-full rounded-3xl p-[40px] relative z-[1]">
       <ul className="text-[#313131] flex flex-col gap-3 mb-5">
         <li className="flex gap-3 font-bold items-start">
           <img src={contactTel} alt="contactClock" />
