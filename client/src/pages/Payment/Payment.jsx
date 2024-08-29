@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import BreadCrumbs from "../components/UI/BreadCrumbs";
-import InputForm from "../components/UI/InputForm";
+import BreadCrumbs from "../../components/UI/BreadCrumbs";
+import InputForm from "../../components/UI/InputForm";
 import { observer } from "mobx-react-lite";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import PaymentResult from "../components/Payment/PaymentResult";
+import PaymentResult from "../../components/Payment/PaymentResult";
+import "./Payment.scss"
 
 const shippingMethod = [
   {
@@ -22,7 +23,7 @@ const Payment = observer(() => {
   return (
     <main className="max-w-[1440px] mx-auto relative">
       <BreadCrumbs title={"Оплата"} />
-      <div className="flex justify-between">
+      <div className="payment-content flex justify-between">
         <div>
           <section className="px-[50px] max-w-[860px] w-full">
             <h2 className="text-xl font-bold my-7">

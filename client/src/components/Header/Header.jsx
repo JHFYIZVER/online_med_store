@@ -9,6 +9,7 @@ import {
   CATEGORY_ROUTE,
   ADMIN_ROUTE,
   MAIN_ROUTE,
+  PROFILE_ROUTE,
 } from "../../utils/const";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../main";
@@ -96,7 +97,7 @@ const Header = observer(() => {
                       ) : (
                         <>
                           <a
-                            onClick={() => navigate(MAIN_ROUTE)}
+                            onClick={() => navigate(PROFILE_ROUTE)}
                             className="cursor-pointer"
                           >
                             {user.name}

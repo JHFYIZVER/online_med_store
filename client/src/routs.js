@@ -13,7 +13,7 @@ import {
 import Admin from "./pages/Admin";
 import Basket from "./pages/Basket/Basket";
 import UserPage from "./pages/UserPage";
-import Payment from "./pages/Payment";
+import Payment from "./pages/Payment/Payment";
 import DevicePage from "./pages/DevicePage/DevicePage";
 import MainPage from "./pages/Main/MainPage";
 import Contact from "./pages/Contact/Contact";
