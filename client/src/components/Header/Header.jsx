@@ -18,8 +18,7 @@ import HeaderContactInfo from "./HeaderContactInfo";
 import HeaderBasket from "./HeaderBasket";
 import { Skeleton } from "@mui/material";
 import "./Header.scss";
-import { LockClosedIcon } from "@heroicons/react/16/solid";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+
 
 const Modal = new ModalStore();
 
@@ -67,7 +66,10 @@ const Header = observer(() => {
         <div className="header-wrapper bg-green">
           <div className={isOpen ? clazz + clazzSecond : clazzSecond}>
             <nav className="header-nav-bar max-w-[700px] w-full">
-              <ul onClick={() => setIsOpen(false)} className="flex items-center justify-between ">
+              <ul
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between "
+              >
                 <Link to={"/"} className="cursor-pointer">
                   Главная
                 </Link>
@@ -122,7 +124,7 @@ const Header = observer(() => {
                 </Link>
               </ul>
             </nav>
-            <HeaderBasket setIsOpen={setIsOpen}  />
+            <HeaderBasket setIsOpen={setIsOpen} />
           </div>
         </div>
       </header>

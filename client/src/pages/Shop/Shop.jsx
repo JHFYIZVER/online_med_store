@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import CategoryList from "../components/UI/CategoryList";
-import BreadCrumbs from "../components/UI/BreadCrumbs";
-import DeviceList from "../components/Device/DeviceList";
+import CategoryList from "../../components/UI/CategoryList";
+import BreadCrumbs from "../../components/UI/BreadCrumbs";
+import DeviceList from "../../components/Device/DeviceList";
 import { observer } from "mobx-react-lite";
-import { Context } from "../main";
-import { fetchDevice, fetchType } from "../http/deviceApi";
-import Pages from "../components/UI/Pages";
-import PrevBtn from "../components/UI/Pagination/PrevBtn";
-import NextBtn from "../components/UI/Pagination/NextBtn";
+import { Context } from "../../main";
+import { fetchDevice, fetchType } from "../../http/deviceApi";
+import Pages from "../../components/UI/Pages";
+import PrevBtn from "../../components/UI/Pagination/PrevBtn";
+import NextBtn from "../../components/UI/Pagination/NextBtn";
+import "./Shop.scss";
 
 const Shop = observer(() => {
   const { device } = useContext(Context);
@@ -38,11 +39,18 @@ const Shop = observer(() => {
         console.log(e);
       });
   }, [device.selectedType, device.page]);
-
   return (
     <main className="max-w-[1440px] mx-auto">
       <BreadCrumbs title={"Оборудование"} />
-      <div className="flex gap-10 px-[50px]">
+      <div
+        className={
+          isLoading
+            ? "shop-content flex gap-10 px-[50px]"
+            : device.devices.length <= 2
+            ? "shop-content-2 flex gap-10 px-[50px]"
+            : "shop-content flex gap-10 px-[50px]"
+        }
+      >
         <CategoryList />
         <DeviceList loading={isLoading} />
       </div>

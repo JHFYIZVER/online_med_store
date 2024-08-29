@@ -19,15 +19,28 @@ const nameSort = [
 const CategoryList = observer(() => {
   const [selected, setSelected] = useState(nameSort[1]);
   const { device } = useContext(Context);
+  const [isOpen, setIsOpen] = useState(false);
+  const clazz = "open ";
+  const clazzSecond =
+    "category-list max-w-[340px] w-full bg-white p-5 px-[30px] max-h-[560px]";
 
   useEffect(() => {
     device.setSelectedSort(selected.name);
   }, [selected]);
 
   return (
-    <nav className="max-w-[340px] w-full bg-white p-5 px-[30px] max-h-[560px]">
-      <h2 className="text-[#3D3D3D] font-bold text-[18px] pb-4 ">Категории</h2>
-      <ul className="flex flex-col gap-[30px] text-[15px]">
+    <aside className={isOpen ? clazz + clazzSecond : clazzSecond}>
+      <h2 className="text-[#3D3D3D] font-bold text-[18px] pb-4 ">
+        Категории
+        <span
+          onClick={() => setIsOpen(!isOpen)}
+          className={isOpen ? clazz + " menu-btn" : "menu-btn"}
+        ></span>
+      </h2>
+      <ul
+        onClick={() => setIsOpen(false)}
+        className="flex flex-col gap-[30px] text-[15px]"
+      >
         {device.types.map((type) => (
           <li
             className={
@@ -82,7 +95,7 @@ const CategoryList = observer(() => {
           </ListboxOptions>
         </Listbox>
       </div>
-    </nav>
+    </aside>
   );
 });
 
