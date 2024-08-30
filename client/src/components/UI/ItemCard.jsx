@@ -11,8 +11,8 @@ const ItemCard = ({ device, loading }) => {
   }
 
   return (
-    <div className="flex flex-col rounded-[24px] bg-white items-center justify-between max-w-[240px] pb-5 w-full min-h-[400px] max-h-[400px]">
-      <div className="bg-green rounded-t-[24px] relative h-[144px] w-full">
+    <div className="item-card flex flex-col rounded-[24px] bg-white items-center justify-between max-w-[240px] pb-5 w-full min-h-[400px] max-h-[400px]">
+      <div className="bg-card bg-green rounded-t-[24px] relative h-[144px] w-full">
         {!loading ? (
           <img
             className="absolute top-[-30px] right-5 cursor-pointer max-w-[190px] max-h-[190px] w-full "
