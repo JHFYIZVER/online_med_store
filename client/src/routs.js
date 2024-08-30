@@ -17,7 +17,7 @@ import Payment from "./pages/Payment/Payment";
 import DevicePage from "./pages/DevicePage/DevicePage";
 import MainPage from "./pages/Main/MainPage";
 import Contact from "./pages/Contact/Contact";
-import AboutUs from "./pages/AboutUs";
+import AboutUs from "./pages/AboutUs/AboutUs";
 import NotFound from "./pages/404";
 import Category from "./pages/Shop/Shop";
 

@@ -1,0 +1,163 @@
+/* Breakpoint 1156px */
+
+@media (max-width: 1156px) {
+  main {
+    .main-information {
+      .main-information-text {
+        h1 {
+          font-size: clamp(24px, 6vw, 74px);
+        }
+        h2 {
+          font-size: clamp(24px, 6vw, 74px);
+          line-height: clamp(40px, 4vw, 81px);
+          svg {
+            max-width: 40px;
+          }
+        }
+        p {
+          font-size: clamp(14px, 4vw, 20px);
+        }
+
+        button {
+          margin-bottom: 10px;
+        }
+      }
+
+      .main-information-img {
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+
+    .advantages-list {
+      .advantages-list-item {
+        h2 {
+          font-size: clamp(12px, 2vw, 20px);
+        }
+        p {
+          font-size: clamp(10px, 2vw, 18px);
+          line-height: clamp(12px, 2vw, 22px);
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 1115px */
+
+@media (max-width: 1115px) {
+  main {
+    .our-goal {
+      p {
+        font-size: clamp(14px, 3vw, 24px);
+      }
+      .goal-list {
+        flex-wrap: wrap;
+        gap: 0px;
+        font-size: clamp(12px, 3vw, 18px);
+        svg {
+          max-width: 15px;
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 985px */
+
+@media (max-width: 985px) {
+  main {
+    .main-information {
+      .main-information-text {
+        h2 {
+          svg {
+            top: 0;
+          }
+        }
+      }
+    }
+    .our-goal {
+      flex-wrap: wrap;
+      div {
+        gap: 10px;
+        width: 100%;
+        max-width: none;
+      }
+      img {
+        display: none;
+      }
+      .goal-list {
+        flex-wrap: wrap;
+        gap: 0px;
+      }
+    }
+  }
+}
+
+/* Breakpoint 768px */
+
+@media (max-width: 768px) {
+  main {
+    .main-information {
+      .main-information-text {
+        h1 {
+          font-size: clamp(24px, 6vw, 74px);
+        }
+        h2 {
+          font-size: clamp(24px, 6vw, 74px);
+          line-height: clamp(40px, 4vw, 81px);
+          svg {
+            max-width: 30px;
+            top: -10px;
+          }
+        }
+        p {
+          padding: 10px 0;
+        }
+
+        button {
+          max-width: 220px;
+        }
+      }
+
+      .main-information-img {
+        display: none;
+      }
+    }
+
+    .advantages-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      .advantages-list-item {
+        h2 {
+          text-align: center;
+        }
+        img {
+          max-width: 35px;
+        }
+      }
+    }
+  }
+}
+
+/* Breakpoint 425px */
+
+@media (max-width: 425px) {
+  main {
+    .main-information {
+      .main-information-text {
+        h2 {
+          padding: 10px 0;
+        }
+        p {
+          line-height: 20px;
+        }
+        button {
+          max-width: 150px;
+          font-size: 12px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,18 @@
 import React from "react";
-import BreadCrumbs from "../components/UI/BreadCrumbs";
-import nurseMain from "../assets/img/About_us/nurse1.png";
-import nurseGoal from "../assets/img/About_us/nurse2.png";
-import SubTitle from "../components/AboutUs/SubTitle";
-import GoalListItem from "../components/AboutUs/GoalListItem";
-import AdvantagesList from "../components/AboutUs/AdvantagesList";
-import ModalStore from "../store/ModalStore";
-import ModalContactUs from "../components/UI/Modals/ModalContactUs";
-import EmblaCarousel from "../components/UI/AboutdUsCarousel/EmblaCarousel";
-import SLIDES from "../components/AboutUs/data";
+import BreadCrumbs from "../../components/UI/BreadCrumbs";
+import nurseMain from "../../assets/img/About_us/nurse1.png";
+import nurseGoal from "../../assets/img/About_us/nurse2.png";
+import SubTitle from "../../components/AboutUs/SubTitle";
+import GoalListItem from "../../components/AboutUs/GoalListItem";
+import AdvantagesList from "../../components/AboutUs/AdvantagesList";
+import ModalStore from "../../store/ModalStore";
+import ModalContactUs from "../../components/UI/Modals/ModalContactUs";
+import EmblaCarousel from "../../components/UI/AboutdUsCarousel/EmblaCarousel";
+import SLIDES from "../../components/AboutUs/data";
 
 import { observer } from "mobx-react-lite";
-import "../components/UI/AboutdUsCarousel/embla.css";
+import "../../components/UI/AboutdUsCarousel/embla.css";
+import "./AboutUs.scss";
 
 const Modal = new ModalStore();
 const OPTIONS = {};
@@ -20,7 +21,7 @@ const AboutUs = observer(() => {
   return (
     <main>
       <BreadCrumbs title={"О нас"} />
-      <section className="main-information px-[50px] flex flex-wrap justify-between max-w-[1440px] mx-auto">
+      <section className="main-information px-[50px] flex justify-between max-w-[1440px] mx-auto">
         <div className="main-information-text max-w-[700px] w-full">
           <h1 className="italic text-[74px] py-3">ЗабайкалМедснаб:</h1>
           <SubTitle />
@@ -53,10 +54,10 @@ const AboutUs = observer(() => {
           <div className="bg-nurse rounded-t-[260px] absolute bottom-0 right-0 max-w-[630px] w-full max-h-[350px] h-full bg-white/50"></div>
         </div>
       </section>
-      <section className="grid grid-cols-3 max-w-[1340px] pb-5 w-full mx-auto">
+      <section className="advantages-list grid grid-cols-3 max-w-[1340px] pb-5 w-full mx-auto">
         <AdvantagesList />
       </section>
-      <section className="our-goal px-[50px] max-w-[1440px] mx-auto flex justify-between items-center">
+      <section className="our-goal gap-10 px-[50px] max-w-[1440px] mx-auto flex justify-between items-center">
         <img src={nurseGoal} alt="nurseGoal" />
         <div className="max-w-[700px] w-full flex flex-col justify-between gap-9">
           <h2 className="font-bold text-[40px]">Наша цель</h2>
@@ -65,7 +66,7 @@ const AboutUs = observer(() => {
             <span className="text-darkGreen">качественной</span> и{" "}
             <span className="text-darkGreen">безопасной</span> работы
           </p>
-          <div className="flex justify-between gap-4 text-lg max-w-[700px] w-full">
+          <div className="goal-list flex justify-between gap-4 text-lg max-w-[700px] w-full">
             <ul>
               <GoalListItem title={"Скорость работы"} />
               <GoalListItem title={"Широкий выбор"} />
@@ -74,7 +75,7 @@ const AboutUs = observer(() => {
             <ul>
               <GoalListItem title={"Конкурентоспособные цены"} />
               <GoalListItem title={"Надежная цепочка поставок"} />
-              <GoalListItem title={" Отличное обслуживание клиентов"} />
+              <GoalListItem title={"Отличное обслуживание клиентов"} />
             </ul>
           </div>
         </div>

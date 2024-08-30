@@ -28,7 +28,7 @@ const SubTitle = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fillRrule="evenodd"
+              fillRule="evenodd"
               clipRule="evenodd"
               d="M54 27L45.1044 27C45.1044 17.0012 36.9988 8.89552 27 8.89552C17.0012 8.89552 8.89552 17.0012 8.89552 27C8.89552 27 8.89552 27 8.89552 27H0C0 12.0883 12.0883 0 27 0C41.9117 0 54 12.0883 54 27Z"
               fill="#90BF22"
