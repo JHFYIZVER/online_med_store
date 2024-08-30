@@ -65,7 +65,7 @@ const ItemCard = ({ device, loading }) => {
 
       {!loading ? (
         <div className="px-5 w-full">
-          <button className="py-[15px] text-white bg-green rounded-xl w-full ">
+          <button   onClick={() => navigate(DEVICE_ROUTE + "/" + device.id)} className="py-[15px] text-white bg-green rounded-xl w-full ">
             {device.price} ₽ - Купить
           </button>
         </div>

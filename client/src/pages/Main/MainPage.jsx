@@ -10,7 +10,11 @@ import ModalStore from "../../store/ModalStore";
 import ModalContactUs from "../../components/UI/Modals/ModalContactUs";
 import QuestionAnswer from "../../components/Main/QuestionAnswer";
 import BtnShowAll from "../../components/Main/BtnShowAll";
+import DeviceList from "../../components/Device/DeviceList";
 
+import { fetchDevice, fetchType } from "../../http/deviceApi";
+import { useState, useContext, useEffect } from "react";
+import { Context } from "../../main";
 import { observer } from "mobx-react-lite";
 import "../../components/UI/Carousel/MainEmbla.css";
 import "./Main.scss";
@@ -22,6 +26,22 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const Modal = new ModalStore();
 
 const MainPage = observer(() => {
+  const { device } = useContext(Context);
+  const [isLoading, setIsLoaing] = useState(true);
+
+  useEffect(() => {
+    fetchType().then((data) => device.setTypes(data));
+    fetchDevice(null, 1, 4)
+      .then((data) => {
+        device.setDevices(data.rows);
+        device.setTotalCount(data.count);
+      })
+      .catch((e) => {
+        alert(e);
+        console.log(e);
+      })
+      .finally(() => setIsLoaing(false));
+  }, []);
   return (
     <main>
       <section className="section-carousel bg-[#F5FFF1] p-[50px] relative">
@@ -72,12 +92,7 @@ const MainPage = observer(() => {
         <h2 className="font-bold text-[40px] text-center pb-[50px]">
           Популярные товары
         </h2>
-        <div className="popular-product-list flex flex-wrap items-center justify-between max-w-[1340px] w-full gap-5 z-[1]">
-          <EquipmentCard />
-          <EquipmentCard />
-          <EquipmentCard />
-          <EquipmentCard />
-        </div>
+        <DeviceList loading={isLoading} />
         <BtnShowAll />
       </section>
       <section className="consultation text-white pb-[100px] px-[50px] pt-[150px] relative">
