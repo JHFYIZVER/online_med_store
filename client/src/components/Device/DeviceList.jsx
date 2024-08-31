@@ -7,7 +7,7 @@ import { Skeleton } from "@mui/material";
 const DeviceList = observer(({ loading }) => {
   const { device } = useContext(Context);
   return (
-    <div className="device-list flex flex-wrap gap-12">
+    <div className="device-list max-w-[1340px] w-full justify-between flex flex-wrap gap-12">
       {!loading ? (
         device.devices.map((device) => (
           <ItemCard loading={loading} key={device.id} device={device} />

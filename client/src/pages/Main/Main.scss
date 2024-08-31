@@ -164,6 +164,13 @@
         }
       }
     }
+
+    .popular-product {
+      .device-list {
+        max-width: none;
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -234,6 +241,15 @@
           width: 30px;
           height: 30px;
           min-width: none;
+        }
+      }
+    }
+
+    .consultation {
+      .consultation-question {
+        img {
+          top: -180px;
+          max-height: 180px;
         }
       }
     }
