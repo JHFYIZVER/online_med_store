@@ -1,3 +1,45 @@
+main {
+  .section-carousel {
+    .advantages-list {
+      img {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  section {
+    .btn-show-all {
+      transition: all 0.3s ease-in;
+      path:nth-child(2) {
+        d: path("M14.5 4H3.5H4");
+      }
+
+      path {
+        transition: 0.25s ease;
+      }
+
+      &:hover {
+        path:nth-child(1) {
+          d: path("M15 4H4V4");
+        }
+
+        path:nth-child(2) {
+          d: path("M14.5 4H3.5H0");
+          transform: translateX(4px);
+        }
+
+        path:nth-child(3) {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+}
+
 /* Breakpoint 1200px */
 
 @media (max-width: 1280px) {

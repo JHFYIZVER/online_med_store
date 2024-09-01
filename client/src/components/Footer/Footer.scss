@@ -1,3 +1,76 @@
+footer {
+  .social-media {
+    .twitter {
+      svg {
+        path {
+          fill: #e0e0e0;
+        }
+      }
+      span {
+        background-color: #4099ff;
+      }
+    }
+    .facebook {
+      svg {
+        path {
+          fill: #e0e0e0;
+        }
+      }
+      span {
+        background-color: #3b5998;
+      }
+    }
+    .instagram {
+      svg {
+        path {
+          fill: #e0e0e0;
+        }
+      }
+      span {
+        background-color: #db5a3c;
+      }
+    }
+    li {
+      position: relative;
+      svg {
+        position: relative;
+        z-index: 1;
+      }
+
+      span {
+        border-radius: 0;
+        display: block;
+        height: 0;
+        width: 0;
+        left: 50%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        span {
+          width: 33px;
+          height: 33px;
+          border-radius: 50%;
+          top: 0;
+          left: 0;
+        }
+
+        svg {
+          path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}
+
 /* Breakpoint 940px */
 
 @media (max-width: 940px) {

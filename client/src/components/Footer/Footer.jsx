@@ -87,7 +87,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr/>
+      <hr />
       <div className="px-[40px] py-[20px] gap-5 min-h-[90px] flex flex-wrap items-center justify-between max-w-[1440px] w-full mx-auto">
         <span className="text-[#D4D4D4]">
           © 2024 ЗабайкалМедснаб. - All rights reserved.
@@ -104,8 +104,8 @@ const Footer = () => {
               <a>Terms</a>
             </li>
           </ul>
-          <ul className="flex items-center gap-[15px]">
-            <li className="cursor-pointer">
+          <ul className="social-media flex items-center gap-[15px]">
+            <li className="cursor-pointer facebook">
               <svg
                 width="33"
                 height="33"
@@ -151,8 +151,9 @@ const Footer = () => {
                   </linearGradient>
                 </defs>
               </svg>
+              <span></span>
             </li>
-            <li className="cursor-pointer">
+            <li className="cursor-pointer twitter">
               <svg
                 width="33"
                 height="33"
@@ -198,8 +199,9 @@ const Footer = () => {
                   </linearGradient>
                 </defs>
               </svg>
+              <span></span>
             </li>
-            <li className="cursor-pointer">
+            <li className="cursor-pointer instagram">
               <svg
                 width="33"
                 height="33"
@@ -245,6 +247,7 @@ const Footer = () => {
                   </linearGradient>
                 </defs>
               </svg>
+              <span></span>
             </li>
           </ul>
         </div>
